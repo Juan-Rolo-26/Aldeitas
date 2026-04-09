@@ -4,7 +4,7 @@ const WA_TEXT = encodeURIComponent('Hola, me interesa saber más sobre Aldeitas 
 export function WhatsAppFloat() {
   return (
     <a
-      to={`https://wa.me/${WA}?text=${WA_TEXT}`}
+      href={`https://wa.me/${WA}?text=${WA_TEXT}`}
       className="wa-float"
       target="_blank"
       rel="noopener noreferrer"

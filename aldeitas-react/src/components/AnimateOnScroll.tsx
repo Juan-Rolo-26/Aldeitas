@@ -1,15 +1,15 @@
 
 
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode
   className?: string
   delay?: 1 | 2 | 3 | 4
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
 }
 
-export function AnimateOnScroll({ children, className = '', delay, as: Tag = 'div' }: Props) {
+export function AnimateOnScroll({ children, className = '', delay, as: Tag = 'div', ...rest }: Props) {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -37,14 +37,15 @@ export function AnimateOnScroll({ children, className = '', delay, as: Tag = 'di
     return () => observer.disconnect()
   }, [])
 
+  const CustomTag = Tag as any
   return (
-    // @ts-expect-error — dynamic tag
-    <Tag
+    <CustomTag
       ref={ref}
       className={`fade-up ${className}`}
+      {...rest}
       {...(delay ? { 'data-delay': delay } : {})}
     >
       {children}
-    </Tag>
+    </CustomTag>
   )
 }
