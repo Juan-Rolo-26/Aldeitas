@@ -15,7 +15,7 @@ import Privacidad from '@/pages/Privacidad'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Aldeitas">
       <ZoomManager />
       <Navbar />
       <Routes>
