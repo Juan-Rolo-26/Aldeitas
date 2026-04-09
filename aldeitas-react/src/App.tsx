@@ -12,6 +12,8 @@ import Congelados from '@/pages/Congelados'
 import Contacto from '@/pages/Contacto'
 import Blog from '@/pages/Blog'
 import Privacidad from '@/pages/Privacidad'
+import AvisoLegal from '@/pages/AvisoLegal'
+import Cookies from '@/pages/Cookies'
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/privacidad" element={<Privacidad />} />
+        <Route path="/legal" element={<AvisoLegal />} />
+        <Route path="/cookies" element={<Cookies />} />
       </Routes>
       <Footer />
       <ModalContacto />

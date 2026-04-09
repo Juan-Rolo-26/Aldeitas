@@ -3,22 +3,22 @@ import { AnimateOnScroll } from './AnimateOnScroll'
 
 const items = [
   {
-    image: '/assets/cocina_oficio.png',
+    image: `${import.meta.env.BASE_URL}assets/cocina_oficio.png`,
     title: 'Cocina con oficio.',
     text: 'Lo que hacemos viene de una tradición. Sabemos cocinar, sabemos lo que estamos haciendo, y nos importa hacerlo bien.',
   },
   {
-    image: '/assets/atencion_cliente.png',
+    image: `${import.meta.env.BASE_URL}assets/atencion_cliente.png`,
     title: 'Atentos a cada cliente.',
     text: 'Cada empresa tiene una necesidad distinta. Escuchamos, nos adaptamos, nos hacemos cargo. No vendemos un menú cerrado: armamos la solución que cada uno necesita.',
   },
   {
-    image: '/assets/compromiso_dia.png',
+    image: `${import.meta.env.BASE_URL}assets/compromiso_dia.png`,
     title: 'Compromiso con el día a día.',
-    text: 'Cumplimos los tiempos porque sabemos que esto es parte de tu operación. Todos los días, sin excepciones.',
+    text: 'Cumplimos los tiempos because sabemos que esto es parte de tu operación. Todos los días, sin excepciones.',
   },
   {
-    image: '/assets/equipo_real.png',
+    image: `${import.meta.env.BASE_URL}assets/equipo_real.png`,
     title: 'Equipo real.',
     text: 'Detrás de cada plato hay un grupo de personas que eligió hacer esto bien. Cocineros, administración, logística, atención. Cada uno hace que esto funcione.',
   },

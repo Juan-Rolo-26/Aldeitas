@@ -18,7 +18,7 @@ export function Unidades() {
           <AnimateOnScroll as="article" className="unidad-card food" delay={1} aria-label="Viandas corporativas">
             <img
               className="unidad-img"
-              src="/assets/La Aldea - Alta (18).jpg"
+              src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (18).jpg`}
               alt="Cocina de Aldeitas Food en Rosario preparando viandas corporativas"
               width={560}
               height={520}
@@ -43,7 +43,7 @@ export function Unidades() {
           <AnimateOnScroll as="article" className="unidad-card congelados" delay={2} aria-label="Productos congelados Aldeitas">
             <img
               className="unidad-img"
-              src="/assets/Congelados1.png"
+              src={`${import.meta.env.BASE_URL}assets/Congelados1.png`}
               alt="Línea de productos congelados Aldeitas para hogares"
               width={560}
               height={520}

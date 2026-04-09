@@ -12,7 +12,7 @@ export function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <img
-              src="/assets/logo-sin-fondo.png"
+              src={`${import.meta.env.BASE_URL}assets/logo-sin-fondo.png`}
               className="footer-logo"
               alt="Aldeitas Food"
               width={160}

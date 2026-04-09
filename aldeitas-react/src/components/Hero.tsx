@@ -82,10 +82,10 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/assets/La Aldea - Alta (3).jpg"
+          preload="auto"
+          poster={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (3).jpg`}
+          src={`${import.meta.env.BASE_URL}assets/video_hero.mp4`}
         >
-          <source src="/assets/video_hero.mp4" type="video/mp4" />
         </video>
       </div>
 

@@ -2,15 +2,14 @@
 import { AnimateOnScroll } from './AnimateOnScroll'
 import { ModalTrigger } from './ModalTrigger'
 
-const WA = import.meta.env.VITE_WA_NUMBER ?? '549XXXXXXXXXX'
-const WA_TEXT = encodeURIComponent('Hola, me interesa saber más sobre Aldeitas Food')
+
 
 export function CtaFinal() {
   return (
     <section id="cta-final" aria-labelledby="cta-title">
       <div className="cta-final-bg" aria-hidden="true">
         <img
-          src="/assets/La Aldea - Alta (22).jpg"
+          src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (22).jpg`}
           alt=""
           width={1920}
           height={600}

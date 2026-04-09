@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom'
 import { AnimateOnScroll } from './AnimateOnScroll'
 
 export function QuienesSomos() {
@@ -18,19 +19,17 @@ export function QuienesSomos() {
             la regla sigue siendo la misma que el primer día.
           </p>
           <div className="presentacion-actions">
-            <a to="/nosotros" className="btn btn-outline-green" aria-label="Conocé nuestra historia">
+            <Link to="/nosotros" className="btn btn-outline-green" aria-label="Conocé nuestra historia">
               Conocé nuestra historia
-            </a>
+            </Link>
           </div>
         </AnimateOnScroll>
 
         <div className="presentacion-img-col">
           <img
-            src="/assets/La Aldea - Alta (10).jpg"
+            src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (10).jpg`}
             alt="El equipo de Aldeitas Food cocinando en su cocina central de Rosario"
-            style={{objectFit: "cover", width: "100%", height: "100%"}}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
             loading="lazy"
           />
           <div className="presentacion-img-overlay" />

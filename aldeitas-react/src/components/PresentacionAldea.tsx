@@ -11,11 +11,9 @@ export function PresentacionAldea() {
                 <div className="presentacion-img-col">
                     <img
                         className="presentacion-img"
-                        src="/assets/La Aldea - Alta (36).jpg"
+                        src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (36).jpg`}
                         alt="Cocina de Aldeitas Food — manos cocinando, equipo trabajando"
-                        style={{objectFit: "cover", width: "100%", height: "100%"}}
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: "cover", width: "100%", height: "100%" }}
                         loading="lazy"
                     />
                     <div className="presentacion-img-overlay" />

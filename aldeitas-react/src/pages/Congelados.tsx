@@ -21,7 +21,7 @@ export default function Congelados() {
               </p>
               <div style={{ position: 'relative', height: '300px', marginBottom: '24px', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
                 <img
-                  src="/assets/Congelados1.png"
+                  src={`${import.meta.env.BASE_URL}assets/Congelados1.png`}
                   alt="Línea de congelados Aldeitas"
                   style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />

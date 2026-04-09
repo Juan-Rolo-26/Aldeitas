@@ -13,7 +13,7 @@ export default function Nosotros() {
           <div className="presentacion-grid" style={{ textAlign: 'left', marginTop: '60px' }}>
             <div className="presentacion-img-col">
               <img
-                src="/assets/La Aldea - Alta (10).jpg"
+                src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (10).jpg`}
                 alt="El equipo de Aldeitas Food en la cocina central de Rosario"
                 style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 loading="lazy"

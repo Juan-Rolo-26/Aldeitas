@@ -1,10 +1,10 @@
 const DEFAULT_IMAGES = [
-    '/assets/La Aldea - Alta (11).jpg',
-    '/assets/La Aldea - Alta (15).jpg',
-    '/assets/La Aldea - Alta (20).jpg',
-    '/assets/La Aldea - Alta (32).jpg',
-    '/assets/La Aldea - Alta (34).jpg',
-    '/assets/La Aldea - Alta (53).jpg',
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (11).jpg`,
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (15).jpg`,
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`,
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (32).jpg`,
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (34).jpg`,
+    `${import.meta.env.BASE_URL}assets/La Aldea - Alta (53).jpg`,
 ]
 
 export function ImageGallery({ images = DEFAULT_IMAGES, title = "Nuestra cocina en imágenes" }: { images?: string[], title?: string }) {

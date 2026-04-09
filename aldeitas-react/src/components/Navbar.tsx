@@ -33,11 +33,11 @@ export function Navbar() {
 
           <Link to="/" className="nav-logo" aria-label="Aldeitas Food - Inicio">
             <img
-              src="/assets/logo-sin-fondo.png"
+              src={`${import.meta.env.BASE_URL}assets/logo-sin-fondo.png`}
               alt="Aldeitas Food - Cocina de familia, todos los días"
               width={120}
               height={46}
-              
+
             />
           </Link>
 
