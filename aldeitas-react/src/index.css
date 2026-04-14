@@ -217,12 +217,13 @@ ul {
   left: 0;
   right: 0;
   z-index: 1100;
-  height: 40px;
+  height: auto;
+  min-height: 40px;
   background: #111;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 8px 16px;
   user-select: none;
   overflow: hidden;
 }
@@ -230,28 +231,24 @@ ul {
 .ann-text-wrap {
   flex: 1;
   max-width: 700px;
-  overflow: hidden;
   text-align: center;
   position: relative;
-  height: 40px;
+  min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .ann-text {
-  position: absolute;
   width: 100%;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   padding: 0 8px;
   animation: annEnter 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  line-height: 1.3;
 }
 
 @keyframes annEnter {
@@ -333,6 +330,7 @@ ul {
 
   .ann-text {
     font-size: 0.65rem;
+    position: relative;
   }
 }
 
@@ -452,26 +450,31 @@ ul {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   padding: 8px;
   background: none;
   border: none;
   border-radius: 8px;
+  z-index: 1000;
 }
 
 .nav-toggle span {
   display: block;
-  width: 22px;
-  height: 2px;
-  background: #1a1a1a;
+  width: 28px;
+  height: 2.5px;
+  background: var(--dark);
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
 
+.nav-toggle span.open {
+  background: var(--white);
+}
+
 .nav-toggle span.open:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(8.5px) rotate(45deg);
 }
 
 .nav-toggle span.open:nth-child(2) {
@@ -480,7 +483,7 @@ ul {
 }
 
 .nav-toggle span.open:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-8.5px) rotate(-45deg);
 }
 
 /* Mobile overlay */
@@ -2268,9 +2271,18 @@ ul {
   }
 
   .presentacion-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
-    padding: 60px 5%;
+    padding: 60px 0;
+  }
+
+  .presentacion-img-col {
+    order: 1;
+  }
+
+  .presentacion-content {
+    order: 2;
   }
 
   .presentacion-img-col {
@@ -2293,21 +2305,169 @@ ul {
 
   .nav-menu.open {
     display: flex;
+    flex-direction: column;
     position: fixed;
     inset: 0;
-    background: var(--dark);
-    padding: 100px 32px 40px;
-    z-index: 999;
-    gap: 0;
+    /* Usamos el verde corporativo en vez del rojo del ejemplo de referencia */
+    background: var(--green, #173f2a);
+    padding: 100px 32px 60px;
+    z-index: 990;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    animation: menuFadeIn 0.3s ease forwards;
   }
 
-  .nav-menu.open a {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--white);
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  @keyframes menuFadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .nav-menu.open li {
     width: 100%;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: menuItemFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .nav-menu.open li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .nav-menu.open li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .nav-menu.open li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-menu.open li:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .nav-menu.open li:nth-child(5) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes menuItemFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Textos gigantes como en la referencia (sans-serif, bold, white) */
+  .nav-menu.open a {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    font-weight: 900;
+    font-family: var(--font-sans);
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    /* needed para que la barrita tome el ancho de la palabra */
+    position: relative;
+    padding-bottom: 8px;
+    /* espacio para la barrita */
+    transition: color 0.3s ease;
+  }
+
+  /* =========================================================
+     Animación Activa/Hover: Cambio de color + Barrita inferior
+     ========================================================= */
+  .nav-menu.open a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--gold);
+    /* Barrita dorada/color acento */
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Estado ACTIVO o HOVER en el celular */
+  .nav-menu.open a.active,
+  .nav-menu.open a:hover {
+    color: var(--gold);
+    /* La palabra cambia de color */
+  }
+
+  .nav-menu.open a.active::after,
+  .nav-menu.open a:hover::after {
+    width: 100%;
+    /* La barrita se despliega ocupando todo el ancho */
+  }
+
+  /* ───────────────────────────────────────────────────────── */
+
+  .nav-menu-footer {
+    margin-top: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    animation: menuItemFadeUp 0.6s ease 0.4s forwards;
+    width: 100%;
+  }
+
+  .nav-menu-social-icons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+  }
+
+  .nav-menu-social-icons a {
+    /* Reseteo del estilo a de nav-menu */
+    display: flex;
+    font-size: 1.5rem;
+    padding: 0;
+    color: var(--white);
+  }
+
+  .nav-menu-social-icons a::after {
+    display: none;
+    /* Quitamos la barrita en los iconos */
+  }
+
+  .nav-menu-footer p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0;
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+
+  .nav-menu-footer>a {
+    /* Link de email */
+    font-size: 1.1rem;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0;
+  }
+
+  .nav-menu-footer>a::after {
+    display: none;
   }
 
   .nav-cta {
@@ -2644,5 +2804,704 @@ ul {
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE COMPLETE POLISH — ≤ 480px
+   Información a lo alto: contenido primero, video abajo.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* ── Base: escala tipográfica más compacta ── */
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 5%;
+  }
+
+  /* ── Navbar más compacto ── */
+  #navbar {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  #navbar.scrolled {
+    height: 54px;
+  }
+
+  /* El logo ya se reduce a 36px en el bloque anterior; subimos un poco */
+  .nav-logo img {
+    height: 44px;
+  }
+
+  #navbar.scrolled .nav-logo img {
+    height: 36px;
+  }
+
+  /* Overlay del menú: arranca justo después del navbar (40px ann + 64px nav) */
+  .nav-mobile-overlay {
+    top: 104px;
+  }
+
+  /* ── HERO: info primero, video después ── */
+  #hero {
+    padding-top: 104px;
+    /* 40px announcement + 64px navbar */
+    grid-template-rows: auto 55vw auto;
+    min-height: auto;
+    overflow-x: hidden;
+  }
+
+  /* Contenido sube a la primera fila */
+  .hero-content-col {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    padding: 28px 20px 24px;
+  }
+
+  /* Video baja a la segunda fila */
+  .hero-media {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    height: 55vw;
+    min-height: 200px;
+  }
+
+  .hero-marquee-bar {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  /* Headline sin nowrap y más pequeño */
+  .hero-headline {
+    white-space: normal;
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-rating-row {
+    margin-bottom: 12px;
+  }
+
+  .hero-stars svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-subtext {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-cta {
+    padding: 14px 24px;
+    font-size: 0.74rem;
+    margin-bottom: 22px;
+  }
+
+  .hero-mini-stats {
+    padding-top: 16px;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .hero-stat {
+    min-width: 0;
+    padding: 0 4px;
+  }
+
+  .hero-stat-num {
+    font-size: 1.1rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.52rem;
+    letter-spacing: 0.01em;
+    white-space: normal;
+    /* Fix desborde: permitir wrap */
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  /* Rating row: una sola línea corta */
+  .hero-rating-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    max-width: 260px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* Prevenir overflow horizontal en todo el hero content */
+  .hero-content-col {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-subtext {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  /* ── Tipografía global de secciones ── */
+  .section-title {
+    font-size: clamp(1.5rem, 7.5vw, 2rem);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .section-sub {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+  }
+
+  /* ── ViandasShowcase ── */
+  .vs-text-band {
+    padding: 36px 20px 44px;
+  }
+
+  .vs-headline {
+    font-size: clamp(1.4rem, 7vw, 1.9rem);
+    letter-spacing: -0.02em;
+  }
+
+  .vs-sub {
+    font-size: 0.9rem;
+  }
+
+  /* ── Grids de Presentación (QuienesSomos & Diferenciales) ── */
+  .presentacion-grid {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .presentacion-img-col {
+    aspect-ratio: 16 / 9 !important;
+    min-height: unset !important;
+  }
+
+  .presentacion-content {
+    padding: 36px 6% 40px !important;
+  }
+
+  .presentacion-title {
+    font-size: clamp(1.4rem, 7vw, 1.9rem);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .presentacion-sub {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 auto 24px;
+  }
+
+  .presentacion-actions .btn {
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* ── Diferenciales ── */
+  #diferenciales {
+    padding: 52px 0;
+  }
+
+  .diferenciales-header {
+    margin-bottom: 32px;
+  }
+
+  /* ── Unidades de Negocio ── */
+  #unidades {
+    padding: 52px 0;
+  }
+
+  .unidades-header {
+    margin-bottom: 32px;
+  }
+
+  .unidad-card {
+    min-height: 340px;
+  }
+
+  .unidad-body {
+    padding: 24px 20px;
+  }
+
+  .unidad-body h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  .unidad-body p {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+
+  /* ── Cómo Funciona ── */
+  #como-funciona {
+    padding: 52px 0;
+  }
+
+  .como-header {
+    margin-bottom: 36px;
+  }
+
+  .paso-num {
+    width: 58px;
+    height: 58px;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+
+  .paso-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .paso-item p {
+    font-size: 0.8rem;
+  }
+
+  /* ── Prueba Social ── */
+  #prueba-social {
+    padding: 52px 0;
+  }
+
+  .stats-row {
+    margin-bottom: 40px;
+  }
+
+  .stat-box {
+    padding: 24px 16px;
+  }
+
+  .stat-num {
+    font-size: 2rem;
+  }
+
+  .logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .logo-item {
+    padding: 8px;
+    min-height: 72px;
+  }
+
+  .logo-item img {
+    max-height: 60px;
+  }
+
+  /* ── Cita Mercedes ── */
+  #cita {
+    padding: 64px 0;
+  }
+
+  .cita-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .cita-avatar,
+  .cita-avatar-placeholder {
+    width: 54px;
+    height: 54px;
+    font-size: 1.3rem;
+  }
+
+  /* ── Distribución ── */
+  #distribucion {
+    padding: 52px 0;
+  }
+
+  .distribucion-card {
+    padding: 28px 20px;
+    gap: 20px;
+    border-radius: var(--radius);
+  }
+
+  .distribucion-card h2 {
+    font-size: 1.35rem;
+  }
+
+  /* ── CTA Final ── */
+  #cta-final {
+    padding: 64px 0;
+  }
+
+  .cta-final-inner {
+    padding: 0 5%;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .cta-actions .btn {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Footer ── */
+  #footer {
+    padding: 52px 0 0;
+  }
+
+  .footer-grid {
+    padding-bottom: 36px;
+    gap: 24px;
+  }
+
+  .footer-brand .footer-logo {
+    height: 58px;
+    margin-bottom: 18px;
+  }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .footer-col h4 {
+    font-size: 0.82rem;
+    margin-bottom: 18px;
+  }
+
+  .footer-nav a {
+    font-size: 0.88rem;
+  }
+
+  .footer-contact-item {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 14px 0;
+  }
+
+  /* ── Modal ── */
+  .modal-header {
+    padding: 24px 20px 16px;
+  }
+
+  .modal-body {
+    padding: 20px 20px 28px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE – PÁGINAS INTERNAS
+   Cubre Viandas, Congelados, Distribución, Nosotros, Contacto, Blog
+   Todas usan inline styles con grid 1fr 1fr → stack vertical en móvil
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Clases utilitarias de grid responsive ── */
+
+/* Split 2 columnas: se usaba en heroes y secciones principales */
+.page-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* 3 columnas: para diferenciales / beneficios */
+.page-3col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* 2 columnas más compactas: soluciones B2B, mini stats */
+.page-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* paddingTop de páginas internas */
+.page-inner {
+  padding-top: 120px;
+}
+
+/* Botones de acción en hero de páginas internas */
+.page-hero-btns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE PAGES — grids basados en clases
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .page-split-grid {
+    gap: 40px;
+  }
+
+  .page-3col-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ── Mobile (≤768px): grids a una columna ── */
+@media (max-width: 768px) {
+
+  /* Padding top páginas internas en mobile */
+  .viandas-page,
+  .congelados-page,
+  .distribucion-page,
+  .nosotros-page,
+  .contacto-page,
+  .blog-page {
+    padding-top: 104px !important;
+  }
+
+  /* === Grids de clase → stack vertical === */
+  .page-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+
+  .page-3col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .page-2col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* === Botones de accion en heros → columna === */
+  .page-hero-btns {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .page-hero-btns .btn {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* === Imágenes hero de páginas: altura y proporción natural === */
+  .viandas-page .hero-viandas [style*="height: 600px"],
+  .congelados-page [style*="height: 550px"],
+  .distribucion-page [style*="height: 550px"] {
+    height: auto !important;
+    aspect-ratio: 4/5 !important;
+    max-height: 480px;
+    border-radius: 20px !important;
+  }
+
+  .nosotros-page [style*="height: 700px"] {
+    height: auto !important;
+    aspect-ratio: 4/5 !important;
+    max-height: 480px;
+    border-radius: 20px !important;
+  }
+
+  /* === Hero sections padding ===*/
+  .hero-viandas {
+    min-height: auto !important;
+    margin-bottom: 40px !important;
+    padding: 20px 0 0 !important;
+  }
+
+  .hero-congelados {
+    margin-bottom: 40px !important;
+    padding: 20px 0 !important;
+  }
+
+  /* === Botones en hero pages: columna === */
+  .hero-viandas [style*="display: flex"][style*="gap: 20px"],
+  .hero-congelados [style*="display: flex"][style*="gap: 20px"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .hero-viandas .btn,
+  .hero-congelados .btn {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* === Distribución: hero botones === */
+  .distribucion-page .page-split-grid [style*="display: flex"][style*="gap: 20px"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .distribucion-page .page-split-grid .btn {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* === Distribución: CTA final verde === */
+  .distribucion-page [style*="padding: 100px"] {
+    padding: 48px 24px !important;
+    border-radius: 24px !important;
+  }
+
+  .distribucion-page [style*="padding: 100px"] [style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  /* === Congelados: CTA "¿Tenés un negocio?" === */
+  .congelados-page [style*="padding: 80px"] {
+    padding: 40px 20px !important;
+    border-radius: 24px !important;
+  }
+
+  /* === Blog: grid posts → 1 col === */
+  .blog-page [style*="grid-template-columns: repeat(auto-fill"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* Blog: hero imagen */
+  .blog-page [style*="height: 500px"] {
+    height: 260px !important;
+    border-radius: 20px !important;
+  }
+
+  /* Blog: newsletter form */
+  .blog-page form {
+    flex-direction: column !important;
+    border-radius: 16px !important;
+    padding: 12px !important;
+  }
+
+  .blog-page form input {
+    padding: 14px 20px !important;
+    border-radius: 10px !important;
+    min-height: 48px;
+  }
+
+  .blog-page form button {
+    border-radius: 10px !important;
+    justify-content: center !important;
+  }
+
+  /* === Contacto: padding de cards === */
+  .contacto-page [style*="padding: 48px"][style*="border-radius: 35px"],
+  .contacto-page [style*="padding: 48px"][style*="35px"] {
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+  }
+
+  .contacto-page [style*="height: 400px"] {
+    height: 220px !important;
+    border-radius: 20px !important;
+  }
+
+  /* === Nosotros: mini stats grid dentro del contenido === */
+  .nosotros-page .page-2col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+}
+
+/* ── Mini-móvil (≤480px): ajustes adicionales páginas internas ── */
+@media (max-width: 480px) {
+
+  /* Reduce padding de secciones internas */
+  .viandas-page section,
+  .congelados-page section,
+  .distribucion-page section,
+  .nosotros-page section,
+  .contacto-page section,
+  .blog-page section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Título h1 de páginas internas */
+  .viandas-page .section-title,
+  .congelados-page .section-title,
+  .distribucion-page .section-title,
+  .nosotros-page .section-title,
+  .contacto-page .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* section-sub más compacto */
+  .viandas-page .section-sub,
+  .congelados-page .section-sub,
+  .distribucion-page .section-sub,
+  .nosotros-page .section-sub,
+  .contacto-page .section-sub {
+    font-size: 0.95rem !important;
+  }
+
+  /* Emojis y badges de cards de beneficios */
+  .viandas-page .page-3col-grid>div,
+  .congelados-page .page-3col-grid>div {
+    padding: 28px 20px !important;
+  }
+
+  /* Blog article image */
+  .blog-page article [style*="height: 240px"] {
+    height: 180px !important;
+  }
+
+  /* Blog padding de texto de card */
+  .blog-page article>div[style*="padding: 32px"],
+  .blog-page article>div[style*="padding: 28px"] {
+    padding: 20px 18px !important;
+  }
+
+  /* Nosotros: imagen principal */
+  .nosotros-page [style*="height: 700px"] {
+    height: 240px !important;
+    border-radius: 20px !important;
+  }
+
+  /* Viandas: mini badge en imagen héroe */
+  .hero-viandas [style*="bottom: 30px"],
+  .hero-viandas [style*="bottom:30px"] {
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Congelados: badge ❄️ arriba */
+  .hero-congelados [style*="top: 30px"],
+  .hero-congelados [style*="top:30px"] {
+    top: 10px !important;
+    left: 10px !important;
+    font-size: 0.78rem !important;
+    padding: 7px 14px !important;
   }
 }

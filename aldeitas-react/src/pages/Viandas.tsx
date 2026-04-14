@@ -44,53 +44,55 @@ export default function Viandas() {
 
       {/* HERO SECTION - SPLIT SCREEN STYLE */}
       <section className="hero-viandas" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', marginBottom: '80px' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="section-label" style={{ color: 'var(--green)', fontSize: '0.9rem' }}>Socio Gastronómico para Empresas</span>
-            <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '32px' }}>
-              El almuerzo de tu equipo,<br /><em>elevado.</em>
-            </h1>
-            <p className="section-sub" style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'var(--text-light)' }}>
-              Convertimos la pausa del almuerzo en un momento de bienestar y productividad.
-              Cocinamos con ingredientes reales, entregamos con puntualidad suiza.
-            </p>
-            <div style={{ display: 'flex', gap: '20px' }}>
-              <ModalTrigger tipo="empresa" className="btn btn-primary">
-                Solicitar Propuesta
-              </ModalTrigger>
-              <a href="#como-funciona" className="btn btn-gold">Saber más</a>
-            </div>
-          </motion.div>
+        <div className="container">
+          <div className="page-split-grid">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="section-label" style={{ color: 'var(--green)', fontSize: '0.9rem' }}>Socio Gastronómico para Empresas</span>
+              <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '32px' }}>
+                El almuerzo de tu equipo,<br /><em>elevado.</em>
+              </h1>
+              <p className="section-sub" style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'var(--text-light)' }}>
+                Convertimos la pausa del almuerzo en un momento de bienestar y productividad.
+                Cocinamos con ingredientes reales, entregamos con puntualidad suiza.
+              </p>
+              <div className="page-hero-btns">
+                <ModalTrigger tipo="empresa" className="btn btn-primary">
+                  Solicitar Propuesta
+                </ModalTrigger>
+                <a href="#como-funciona" className="btn btn-gold">Saber más</a>
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            style={{ position: 'relative', height: '600px', borderRadius: '30px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)' }}
-          >
-            <img
-              src={`${import.meta.env.BASE_URL}assets/viandas_hero.png`}
-              alt="Viandas Gourmet Aldeitas"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            <div style={{ position: 'absolute', bottom: '30px', left: '30px', right: '30px', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', padding: '24px', borderRadius: '20px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontWeight: 800, color: 'var(--green)', fontSize: '1.2rem' }}>+35</div>
-                  <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Empresas confían semanalmente</div>
-                </div>
-                <div style={{ width: '1px', height: '30px', background: 'rgba(0,0,0,0.1)' }}></div>
-                <div>
-                  <div style={{ fontWeight: 800, color: 'var(--gold)', fontSize: '1.2rem' }}>100%</div>
-                  <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Ingredientes Naturales</div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: 'relative', height: '600px', borderRadius: '30px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)' }}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}assets/viandas_hero.png`}
+                alt="Viandas Gourmet Aldeitas"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', bottom: '30px', left: '30px', right: '30px', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', padding: '24px', borderRadius: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div style={{ fontWeight: 800, color: 'var(--green)', fontSize: '1.2rem' }}>+35</div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Empresas confían semanalmente</div>
+                  </div>
+                  <div style={{ width: '1px', height: '30px', background: 'rgba(0,0,0,0.1)' }}></div>
+                  <div>
+                    <div style={{ fontWeight: 800, color: 'var(--gold)', fontSize: '1.2rem' }}>100%</div>
+                    <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Ingredientes Naturales</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -110,6 +112,7 @@ export default function Viandas() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="page-3col-grid"
             style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}
           >
             {[
@@ -147,7 +150,7 @@ export default function Viandas() {
       {/* MENU SHOWCASE - VISUAL INTERACTION */}
       <section style={{ padding: '120px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '80px', alignItems: 'center' }}>
+          <div className="page-split-grid" style={{ gap: '60px' }}>
             <AnimateOnScroll direction="left">
               <div>
                 <span className="section-label" style={{ color: 'var(--gold)' }}>Variedad y Frescura</span>

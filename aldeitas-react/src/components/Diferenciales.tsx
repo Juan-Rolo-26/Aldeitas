@@ -14,7 +14,8 @@ export function Diferenciales() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              transform: 'scale(1.25)',
+              objectPosition: 'center center',
+              transform: 'scale(1.12)',
               transformOrigin: 'center center'
             }}
             loading="lazy"

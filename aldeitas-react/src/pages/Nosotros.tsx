@@ -40,45 +40,47 @@ export default function Nosotros() {
 
       {/* PHILOSOPHY GRID */}
       <section style={{ padding: '0 0 120px' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '80px', alignItems: 'center' }}>
-          <AnimateOnScroll direction="left">
-            <div style={{ position: 'relative', height: '700px', borderRadius: '40px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)' }}>
-              <img
-                src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (10).jpg`}
-                alt="Cocina Central Aldeitas"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }} />
-            </div>
-          </AnimateOnScroll>
+        <div className="container">
+          <div className="page-split-grid" style={{ gap: '60px' }}>
+            <AnimateOnScroll direction="left">
+              <div style={{ position: 'relative', height: '700px', borderRadius: '40px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)' }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (10).jpg`}
+                  alt="Cocina Central Aldeitas"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }} />
+              </div>
+            </AnimateOnScroll>
 
-          <AnimateOnScroll direction="right">
-            <div>
-              <span className="section-label" style={{ color: 'var(--gold)' }}>El Legado de Mercedes</span>
-              <h2 className="section-title" style={{ fontSize: '2.8rem' }}>Mercedes Cura, <br />Fundadora.</h2>
-              <div style={{ width: '80px', height: '4px', background: 'var(--green)', margin: '24px 0 32px', borderRadius: '2px' }} />
-              <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.8, marginBottom: '32px' }}>
-                "Aldeitas nació para elevar el estándar de lo que un equipo come cada día.
-                Queremos que cada plato sea un momento de reconexión y energía."
-              </p>
-              <p style={{ color: 'var(--text-light)', lineHeight: 1.8, marginBottom: '48px' }}>
-                Mercedes transformó su pasión por la cocina saludable en un modelo operativo escalable,
-                sin perder nunca la esencia artesanal. Bajo su dirección, Aldeitas ha crecido
-                manteniendo un compromiso inquebrantable con la transparencia y la sanidad alimentaria.
-              </p>
+            <AnimateOnScroll direction="right">
+              <div>
+                <span className="section-label" style={{ color: 'var(--gold)' }}>El Legado de Mercedes</span>
+                <h2 className="section-title" style={{ fontSize: '2.8rem' }}>Mercedes Cura, <br />Fundadora.</h2>
+                <div style={{ width: '80px', height: '4px', background: 'var(--green)', margin: '24px 0 32px', borderRadius: '2px' }} />
+                <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.8, marginBottom: '32px' }}>
+                  "Aldeitas nació para elevar el estándar de lo que un equipo come cada día.
+                  Queremos que cada plato sea un momento de reconexión y energía."
+                </p>
+                <p style={{ color: 'var(--text-light)', lineHeight: 1.8, marginBottom: '48px' }}>
+                  Mercedes transformó su pasión por la cocina saludable en un modelo operativo escalable,
+                  sin perder nunca la esencia artesanal. Bajo su dirección, Aldeitas ha crecido
+                  manteniendo un compromiso inquebrantable con la transparencia y la sanidad alimentaria.
+                </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
-                <div>
-                  <h4 style={{ fontWeight: 800, fontSize: '1.3rem', color: 'var(--green)', marginBottom: '12px' }}>Logística Propia</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Contamos con flota refrigerada para asegurar frescura total de punta a punta.</p>
-                </div>
-                <div>
-                  <h4 style={{ fontWeight: 800, fontSize: '1.3rem', color: 'var(--gold)', marginBottom: '12px' }}>Certificación</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Nuestra cocina cumple con los más altos estándares provinciales y municipales.</p>
+                <div className="page-2col-grid" style={{ gap: '32px' }}>
+                  <div>
+                    <h4 style={{ fontWeight: 800, fontSize: '1.3rem', color: 'var(--green)', marginBottom: '12px' }}>Logística Propia</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Contamos con flota refrigerada para asegurar frescura total de punta a punta.</p>
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 800, fontSize: '1.3rem', color: 'var(--gold)', marginBottom: '12px' }}>Certificación</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>Nuestra cocina cumple con los más altos estándares provinciales y municipales.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </AnimateOnScroll>
+            </AnimateOnScroll>
+          </div>
         </div>
       </section>
 

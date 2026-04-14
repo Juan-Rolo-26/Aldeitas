@@ -7,7 +7,7 @@ export default function Contacto() {
     <main className="contacto-page" style={{ paddingTop: '120px' }}>
       <section style={{ padding: '60px 0 120px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '100px', alignItems: 'flex-start' }}>
+          <div className="page-split-grid" style={{ gap: '80px' }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -98,6 +98,6 @@ export default function Contacto() {
           </div>
         </div>
       </section>
-    </main>
+    </main >
   )
 }

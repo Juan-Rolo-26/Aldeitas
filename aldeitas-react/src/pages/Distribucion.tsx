@@ -8,7 +8,7 @@ export default function Distribucion() {
             {/* HERO SECTION */}
             <section style={{ padding: '60px 0', marginBottom: '80px' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'center' }}>
+                    <div className="page-split-grid">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ export default function Distribucion() {
                                 línea completa de productos. Calidad artesanal a escala industrial,
                                 con la seriedad que tu negocio requiere.
                             </p>
-                            <div style={{ display: 'flex', gap: '20px' }}>
+                            <div className="page-hero-btns">
                                 <ModalTrigger tipo="empresa" className="btn btn-primary">
                                     Solicitar Lista de Precios
                                 </ModalTrigger>
@@ -55,7 +55,7 @@ export default function Distribucion() {
                         <p className="section-sub">Diseñamos modelos de abastecimiento a medida según el tamaño y rotación de tu punto de venta.</p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '30px' }}>
+                    <div className="page-2col-grid">
                         {[
                             {
                                 title: 'Buffet y Comedores',
@@ -102,7 +102,7 @@ export default function Distribucion() {
                         <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.3rem', maxWidth: '700px', margin: '0 auto 48px' }}>
                             Dejanos tus datos y un ejecutivo de cuentas se pondrá en contacto para armar un plan comercial a tu medida.
                         </p>
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+                        <div className="page-hero-btns" style={{ justifyContent: 'center' }}>
                             <ModalTrigger tipo="empresa" className="btn btn-white">Contactar Ventas</ModalTrigger>
                             <a href="https://wa.me/yournumber" className="btn btn-outline-white">Chat por WhatsApp</a>
                         </div>

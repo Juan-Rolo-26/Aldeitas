@@ -8,7 +8,7 @@ export default function Congelados() {
       {/* HERO SECTION */}
       <section className="hero-congelados" style={{ padding: '60px 0', marginBottom: '80px' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          <div className="page-split-grid">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ export default function Congelados() {
                 pero no tienen tiempo de cocinar. Sin conservantes, sin procesos industriales.
                 Solo ingredientes naturales y mucho amor.
               </p>
-              <div style={{ display: 'flex', gap: '20px' }}>
+              <div className="page-hero-btns">
                 <ModalTrigger tipo="congelados" className="btn btn-blue">
                   Ver Catálogo de Productos
                 </ModalTrigger>
@@ -60,7 +60,7 @@ export default function Congelados() {
             <p className="section-sub">Utilizamos tecnología de ultracongelado que preserva la textura, sabor y nutrientes de cada ingrediente.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+          <div className="page-3col-grid" style={{ gap: '40px' }}>
             {[
               { icon: '🥦', title: '100% Natural', text: 'Cero conservantes, colorantes o aditivos. Comida honesta para toda la familia.' },
               { icon: '⚡', title: 'Práctico y Rápido', text: 'Del freezer al plato en menos de 10 minutos. Ideal para el ritmo actual.' },
