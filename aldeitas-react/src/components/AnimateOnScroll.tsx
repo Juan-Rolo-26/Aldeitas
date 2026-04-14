@@ -1,51 +1,59 @@
 
 
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
+import { motion } from 'framer-motion'
+import type { HTMLMotionProps } from 'framer-motion'
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
+interface Props extends HTMLMotionProps<'div'> {
   children: React.ReactNode
   className?: string
-  delay?: 1 | 2 | 3 | 4
-  as?: keyof React.JSX.IntrinsicElements
+  delay?: number
+  as?: any
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none'
+  distance?: number
 }
 
-export function AnimateOnScroll({ children, className = '', delay, as: Tag = 'div', ...rest }: Props) {
-  const ref = useRef<HTMLElement>(null)
+export function AnimateOnScroll({
+  children,
+  className = '',
+  delay = 0,
+  direction = 'up',
+  distance = 30,
+  ...rest
+}: Props) {
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    if (!('IntersectionObserver' in window)) {
-      el.classList.add('visible')
-      return
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: direction === 'up' ? distance : direction === 'down' ? -distance : 0,
+      x: direction === 'left' ? distance : direction === 'right' ? -distance : 0,
+      scale: 0.98,
+      filter: 'blur(10px)'
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.8,
+        delay: delay * 0.15,
+        ease: [0.16, 1, 0.3, 1]
+      }
     }
+  }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            el.classList.add('visible')
-            observer.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const CustomTag = Tag as any
   return (
-    <CustomTag
-      ref={ref}
-      className={`fade-up ${className}`}
-      {...rest}
-      {...(delay ? { 'data-delay': delay } : {})}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={variants}
+      className={className}
+      {...(rest as any)}
     >
       {children}
-    </CustomTag>
+    </motion.div>
   )
 }
