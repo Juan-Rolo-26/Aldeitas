@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { AnnouncementBar } from '@/components/AnnouncementBar'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { ModalContacto } from '@/components/ModalContacto'
@@ -19,6 +20,7 @@ function App() {
   return (
     <Router basename="/Aldeitas">
       <ZoomManager />
+      <AnnouncementBar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

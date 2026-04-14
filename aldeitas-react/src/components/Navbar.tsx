@@ -1,18 +1,16 @@
 
-
 import { useEffect, useState } from 'react'
-
-import { Link } from 'react-router-dom'
-import { ModalTrigger } from './ModalTrigger'
+import { NavLink, Link } from 'react-router-dom'
 
 export function Navbar() {
-  // Navbar always has white background
-  const [scrolled, setScrolled] = useState(true)
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    // Always keep scrolled = true so white bg is always applied
-    setScrolled(true)
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const closeMenu = () => {
@@ -27,34 +25,43 @@ export function Navbar() {
   }
 
   return (
-    <nav id="navbar" className={scrolled ? 'scrolled' : ''} role="navigation" aria-label="Navegación principal">
-      <div className="container">
-        <div className="nav-inner">
+    <nav
+      id="navbar"
+      className={scrolled ? 'scrolled' : ''}
+      role="navigation"
+      aria-label="Navegación principal"
+    >
+      <div className="nav-inner">
 
-          <Link to="/" className="nav-logo" aria-label="Aldeitas Food - Inicio">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/logo-sin-fondo.png`}
-              alt="Aldeitas Food - Cocina de familia, todos los días"
-              width={120}
-              height={46}
+        {/* LOGO */}
+        <Link to="/" className="nav-logo" aria-label="Aldeitas Food — Inicio" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img
+            src={`${import.meta.env.BASE_URL}assets/logo-sin-fondo.png`}
+            alt="Aldeitas Food Logo"
+          />
+          <span className="nav-brand-text" style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 800,
+            fontSize: '1.4rem',
+            lineHeight: 1.1,
+            color: 'var(--green)',
+            textTransform: 'uppercase',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            Aldeitas<span style={{ fontSize: '0.9rem', color: 'var(--gold)', letterSpacing: '0.15em' }}>Food</span>
+          </span>
+        </Link>
 
-            />
-          </Link>
-
+        {/* RIGHT: links + hamburger */}
+        <div className="nav-right">
           <ul className={`nav-menu${menuOpen ? ' open' : ''}`} id="navMenu" role="list">
-            <li><Link to="/nosotros" onClick={closeMenu}>Nosotros</Link></li>
-            <li><Link to="/viandas-corporativas" onClick={closeMenu}>Viandas</Link></li>
-            <li><Link to="/congelados" onClick={closeMenu}>Congelados</Link></li>
-            <li><Link to="/distribucion" onClick={closeMenu}>Distribución</Link></li>
-            <li><Link to="/contacto" onClick={closeMenu}>Contacto</Link></li>
-            <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
+            <li><NavLink to="/viandas-corporativas" onClick={closeMenu}>Viandas</NavLink></li>
+            <li><NavLink to="/congelados" onClick={closeMenu}>Congelados</NavLink></li>
+            <li><NavLink to="/distribucion" onClick={closeMenu}>Distribución</NavLink></li>
+            <li><NavLink to="/contacto" onClick={closeMenu}>Contacto</NavLink></li>
+            <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
           </ul>
-
-          <div className="nav-cta">
-            <ModalTrigger tipo="empresa" className="btn btn-gold" aria-label="Solicitar propuesta de viandas corporativas">
-              Consultar propuesta
-            </ModalTrigger>
-          </div>
 
           <button
             className="nav-toggle"
@@ -63,13 +70,26 @@ export function Navbar() {
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={menuOpen}
           >
-            <span />
-            <span />
-            <span />
+            <span className={menuOpen ? 'open' : ''} />
+            <span className={menuOpen ? 'open' : ''} />
+            <span className={menuOpen ? 'open' : ''} />
           </button>
-
         </div>
+
       </div>
+
+      {/* Mobile full-screen overlay */}
+      {menuOpen && (
+        <div className="nav-mobile-overlay">
+          <ul className="nav-mobile-links" role="list">
+            <li><NavLink to="/viandas-corporativas" onClick={closeMenu}>Viandas</NavLink></li>
+            <li><NavLink to="/congelados" onClick={closeMenu}>Congelados</NavLink></li>
+            <li><NavLink to="/distribucion" onClick={closeMenu}>Distribución</NavLink></li>
+            <li><NavLink to="/contacto" onClick={closeMenu}>Contacto</NavLink></li>
+            <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
+          </ul>
+        </div>
+      )}
     </nav>
   )
 }

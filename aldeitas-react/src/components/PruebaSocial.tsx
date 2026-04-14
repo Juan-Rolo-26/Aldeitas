@@ -1,21 +1,9 @@
 import { AnimateOnScroll } from './AnimateOnScroll'
 
-const clientes = [
-  'Paladini',
-  { name: 'Gerdau', sub: 'Siderco' },
-  'Makro',
-  'SKF',
-  'Marangoni',
-  'Loginter',
-  { name: 'Mundo', sub: 'Construcciones' },
-  { name: 'Fundación', sub: 'Biotar' },
-  'Laromet',
-  'Centinela',
-  'Tyssa',
-  { name: 'Brunetti', sub: 'Hnos.' },
-]
-
 export function PruebaSocial() {
+  const marcasCount = 15;
+  const marcasIndices = Array.from({ length: marcasCount }, (_, i) => i + 1);
+
   return (
     <section id="prueba-social" aria-labelledby="clientes-title">
       <div className="container">
@@ -27,16 +15,16 @@ export function PruebaSocial() {
         </AnimateOnScroll>
 
         <AnimateOnScroll className="logos-grid" role="list" aria-label="Clientes de Aldeitas Food">
-          {clientes.map((c, i) => {
-            const name = typeof c === 'string' ? c : c.name
-            const sub = typeof c === 'string' ? null : c.sub
-            return (
-              <div key={i} className="logo-item" role="listitem">
-                {name}
-                {sub && <><br /><small>{sub}</small></>}
-              </div>
-            )
-          })}
+          {marcasIndices.map((index) => (
+            <div key={index} className="logo-item" role="listitem">
+              <img
+                src={`${import.meta.env.BASE_URL}assets/marcas/${index}.png`}
+                alt={`Cliente Aldeitas ${index}`}
+                loading="lazy"
+                title={`Marca ${index}`}
+              />
+            </div>
+          ))}
         </AnimateOnScroll>
 
       </div>

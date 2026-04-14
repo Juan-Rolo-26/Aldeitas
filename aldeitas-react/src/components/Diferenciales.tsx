@@ -1,53 +1,52 @@
 import { AnimateOnScroll } from './AnimateOnScroll'
 
-
-const items = [
-  {
-    image: `${import.meta.env.BASE_URL}assets/cocina_oficio.png`,
-    title: 'Cocina con oficio.',
-    text: 'Lo que hacemos viene de una tradición. Sabemos cocinar, sabemos lo que estamos haciendo, y nos importa hacerlo bien.',
-  },
-  {
-    image: `${import.meta.env.BASE_URL}assets/atencion_cliente.png`,
-    title: 'Atentos a cada cliente.',
-    text: 'Cada empresa tiene una necesidad distinta. Escuchamos, nos adaptamos, nos hacemos cargo. No vendemos un menú cerrado: armamos la solución que cada uno necesita.',
-  },
-  {
-    image: `${import.meta.env.BASE_URL}assets/compromiso_dia.png`,
-    title: 'Compromiso con el día a día.',
-    text: 'Cumplimos los tiempos because sabemos que esto es parte de tu operación. Todos los días, sin excepciones.',
-  },
-  {
-    image: `${import.meta.env.BASE_URL}assets/equipo_real.png`,
-    title: 'Equipo real.',
-    text: 'Detrás de cada plato hay un grupo de personas que eligió hacer esto bien. Cocineros, administración, logística, atención. Cada uno hace que esto funcione.',
-  },
-]
-
 export function Diferenciales() {
   return (
-    <section id="diferenciales" aria-labelledby="diferenciales-title" style={{ width: '100%', overflow: 'hidden' }}>
-      <div className="container-fluid" style={{ maxWidth: '1800px', margin: '0 auto', padding: '0 40px' }}>
+    <section id="sobre-nosotros-equipo" aria-labelledby="equipo-title">
+      <div className="presentacion-grid">
 
-        <AnimateOnScroll className="diferenciales-header">
-          <span className="section-label">Por qué elegirnos</span>
-          <h2 id="diferenciales-title" className="section-title">Por qué Aldeitas</h2>
-          <p className="section-sub">Cuatro pilares que definen cómo trabajamos todos los días.</p>
+        {/* Columna Imagen */}
+        <AnimateOnScroll className="presentacion-img-col" delay={1}>
+          <img
+            src={`${import.meta.env.BASE_URL}assets/Equipo%20de%20trabajo.jpeg`}
+            alt="El equipo de trabajo de Aldeitas Food conformando la cocina y administración"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transform: 'scale(1.25)',
+              transformOrigin: 'center center'
+            }}
+            loading="lazy"
+          />
         </AnimateOnScroll>
 
-        <div className="diferenciales-grid">
-          {items.map((item, i) => (
-            <AnimateOnScroll key={item.title} as="article" className="diferencial-card" delay={(i + 1) as 1 | 2 | 3 | 4}>
-              <div aria-hidden="true" style={{ position: 'relative', width: '100%', aspectRatio: '4/3' }}>
-                <img src={item.image} alt={item.title} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
-              </div>
-              <div style={{ padding: '32px' }}>
-                <h3 style={{ marginBottom: '16px' }}>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
+        {/* Columna Contenido */}
+        <AnimateOnScroll className="presentacion-content" delay={2}>
+          <span className="section-label">Sobre nosotros</span>
+          <h2 id="equipo-title" className="presentacion-title">
+            El equipo de trabajo
+          </h2>
+
+          <div className="pres-divider" />
+
+          <p className="presentacion-sub">
+            Detrás de cada plato que llega a tu mesa, hay un grupo humano comprometido con la excelencia,
+            el sabor casero y la calidad. Profesionales apasionados por la cocina que hacen de Aldeitas una verdadera familia.
+          </p>
+
+          <div className="pres-divider" />
+
+          <div style={{ marginTop: '20px', maxWidth: '650px' }}>
+            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', color: '#1a1a1a', marginBottom: '16px' }}>
+              Nuestro motor principal: la gente
+            </h3>
+            <p style={{ color: 'var(--text-light)', lineHeight: 1.6, fontSize: '1.05rem', marginBottom: '16px' }}>
+              En Aldeitas creemos que la verdadera diferencia en el servicio de viandas corporativas no está solo en los
+              ingredientes frescos, sino en las manos que los preparan. Nuestro equipo está compuesto por chefs de oficio y especialistas con una sola misión: tu bienestar.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
       </div>
     </section>

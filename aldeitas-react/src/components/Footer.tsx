@@ -46,7 +46,6 @@ export function Footer() {
             <h4>NAVEGACION</h4>
             <nav className="footer-nav" aria-label="Navegación footer">
               <Link to="/">Inicio</Link>
-              <Link to="/nosotros">Sobre Nosotros</Link>
               <Link to="/viandas-corporativas">Servicios</Link>
               <Link to="/contacto">Contacto</Link>
             </nav>

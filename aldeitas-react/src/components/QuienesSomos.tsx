@@ -8,18 +8,23 @@ export function QuienesSomos() {
       <div className="presentacion-grid">
 
         <AnimateOnScroll className="presentacion-content">
-          <span className="presentacion-kicker">Quiénes somos</span>
           <h2 id="quienes-title" className="presentacion-title">
             Una cocina que viene de familia.
           </h2>
+
+          <div className="pres-divider" />
+
           <p className="presentacion-sub">
             Aldeitas Food empezó en 2016, en Rosario, con una sola idea: cocinar para otros como si fuera
             para los nuestros. Hoy entregamos viandas todos los días a empresas de toda la región y somos
             una de las empresas de viandas corporativas más importantes de la provincia de Santa Fe. Pero
             la regla sigue siendo la misma que el primer día.
           </p>
+
+          <div className="pres-divider" />
+
           <div className="presentacion-actions">
-            <Link to="/nosotros" className="btn btn-outline-green" aria-label="Conocé nuestra historia">
+            <Link to="/nosotros" className="btn btn-outline-green">
               Conocé nuestra historia
             </Link>
           </div>

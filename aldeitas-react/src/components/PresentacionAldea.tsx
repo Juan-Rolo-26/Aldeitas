@@ -21,25 +21,28 @@ export function PresentacionAldea() {
 
                 {/* Columna contenido */}
                 <AnimateOnScroll className="presentacion-content">
-                    <span className="presentacion-kicker">Aldeitas Food</span>
                     <h2 id="presentacion-title" className="presentacion-title">
                         Cocina de familia, todos los días.
                     </h2>
+
+                    <div className="pres-divider" />
+
                     <p className="presentacion-sub">
                         Viandas corporativas y productos congelados pensados para empresas, familias y negocios.
                     </p>
+
+                    <div className="pres-divider" />
+
                     <div className="presentacion-actions">
                         <Link
                             to="/viandas-corporativas"
                             className="btn btn-primary"
-                            aria-label="Quiero una solución para mi empresa — viandas corporativas"
                         >
                             Quiero una solución para mi empresa
                         </Link>
                         <Link
                             to="/congelados"
                             className="btn btn-outline-green"
-                            aria-label="Ver productos congelados Aldeitas"
                         >
                             Ver productos congelados
                         </Link>

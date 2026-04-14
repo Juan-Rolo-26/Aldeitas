@@ -88,48 +88,52 @@ export function ModalContacto() {
 
         {!submitted ? (
           <div id="formContainer">
-            <h3 id="modalTitle">Contanos qué necesitás</h3>
-            <p className="modal-sub">
-              Tipo: <strong>{tipoLabel}</strong> — Te respondemos en menos de 24 hs.
-            </p>
+            <div className="modal-header">
+              <h3 id="modalTitle">Contanos qué necesitás</h3>
+              <p className="modal-sub">
+                Tipo: <strong>{tipoLabel}</strong> — Te respondemos en menos de 24 hs.
+              </p>
+            </div>
 
-            <form id="contactForm" onSubmit={handleSubmit} noValidate>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="formNombre">Nombre *</label>
-                  <input type="text" id="formNombre" name="nombre" placeholder="Tu nombre" required autoComplete="name" />
+            <div className="modal-body">
+              <form id="contactForm" onSubmit={handleSubmit} noValidate>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="formNombre">Nombre *</label>
+                    <input type="text" id="formNombre" name="nombre" placeholder="Tu nombre" required autoComplete="name" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="formEmpresa">Empresa</label>
+                    <input type="text" id="formEmpresa" name="empresa" placeholder="Nombre de la empresa" autoComplete="organization" />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="formEmpresa">Empresa</label>
-                  <input type="text" id="formEmpresa" name="empresa" placeholder="Nombre de la empresa" autoComplete="organization" />
-                </div>
-              </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="formEmail">Email *</label>
-                  <input type="email" id="formEmail" name="email" placeholder="tu@email.com" required autoComplete="email" />
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="formEmail">Email *</label>
+                    <input type="email" id="formEmail" name="email" placeholder="tu@email.com" required autoComplete="email" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="formTelefono">Teléfono</label>
+                    <input type="tel" id="formTelefono" name="telefono" placeholder="Ej: 341 555 1234" autoComplete="tel" />
+                  </div>
                 </div>
+
                 <div className="form-group">
-                  <label htmlFor="formTelefono">Teléfono</label>
-                  <input type="tel" id="formTelefono" name="telefono" placeholder="Ej: 341 555 1234" autoComplete="tel" />
+                  <label htmlFor="formMensaje">¿En qué te podemos ayudar? *</label>
+                  <textarea
+                    id="formMensaje"
+                    name="mensaje"
+                    placeholder="Contanos tu necesidad: cuánta gente, frecuencia, zona de entrega..."
+                    required
+                  />
                 </div>
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="formMensaje">¿En qué te podemos ayudar? *</label>
-                <textarea
-                  id="formMensaje"
-                  name="mensaje"
-                  placeholder="Contanos tu necesidad: cuánta gente, frecuencia, zona de entrega..."
-                  required
-                />
-              </div>
-
-              <button type="submit" className="form-submit" disabled={loading}>
-                {loading ? 'Enviando...' : 'Enviar consulta'}
-              </button>
-            </form>
+                <button type="submit" className="form-submit" disabled={loading}>
+                  {loading ? 'Enviando...' : 'Enviar consulta'}
+                </button>
+              </form>
+            </div>
           </div>
         ) : (
           <div className="form-success" role="status">
