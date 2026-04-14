@@ -16,6 +16,7 @@ import Viandas from '@/pages/Viandas'
 import Congelados from '@/pages/Congelados'
 import Contacto from '@/pages/Contacto'
 import Blog from '@/pages/Blog'
+import Distribucion from '@/pages/Distribucion'
 import Privacidad from '@/pages/Privacidad'
 import AvisoLegal from '@/pages/AvisoLegal'
 import Cookies from '@/pages/Cookies'
@@ -30,7 +31,7 @@ function AnimatedRoutes() {
         <Route path="/nosotros" element={<PageWrapper><Nosotros /></PageWrapper>} />
         <Route path="/viandas-corporativas" element={<PageWrapper><Viandas /></PageWrapper>} />
         <Route path="/congelados" element={<PageWrapper><Congelados /></PageWrapper>} />
-        <Route path="/distribucion" element={<PageWrapper><Congelados /></PageWrapper>} />
+        <Route path="/distribucion" element={<PageWrapper><Distribucion /></PageWrapper>} />
         <Route path="/contacto" element={<PageWrapper><Contacto /></PageWrapper>} />
         <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
         <Route path="/privacidad" element={<PageWrapper><Privacidad /></PageWrapper>} />

@@ -4,7 +4,8 @@
       "Bash(cat /home/juampi26/Aldeitas/.github/workflows/*.yml)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git fetch:*)"
     ]
   }
 }
