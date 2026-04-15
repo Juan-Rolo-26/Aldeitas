@@ -359,6 +359,14 @@ ul {
   box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.1);
 }
 
+#navbar.menu-open {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 .nav-inner {
   display: flex;
   justify-content: space-between;
@@ -373,11 +381,17 @@ ul {
 .nav-logo {
   display: flex;
   align-items: center;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.35s ease;
+  position: relative;
+  z-index: 1001;
 }
 
 .nav-logo:hover {
   opacity: 0.82;
+}
+
+#navbar.menu-open .nav-logo {
+  filter: brightness(0) invert(1);
 }
 
 .nav-logo img {
@@ -2308,57 +2322,67 @@ ul {
     flex-direction: column;
     position: fixed;
     inset: 0;
-    /* Usamos el verde corporativo en vez del rojo del ejemplo de referencia */
-    background: var(--green, #173f2a);
-    padding: 100px 32px 60px;
+    /* Deeper translucent gradient */
+    background: linear-gradient(145deg, rgba(14, 30, 14, 0.96), rgba(31, 77, 31, 0.96));
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    padding: 120px 32px 60px;
     z-index: 990;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    animation: menuFadeIn 0.3s ease forwards;
+    /* Soft slide down + fade in */
+    animation: menuFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   @keyframes menuFadeIn {
     from {
       opacity: 0;
+      transform: translateY(-20px) scale(1.02);
+      pointer-events: none;
     }
 
     to {
       opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
     }
   }
 
   .nav-menu.open li {
     width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     opacity: 0;
-    animation: menuItemFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px);
+    animation: menuItemFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .nav-menu.open li:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-
-  .nav-menu.open li:nth-child(2) {
     animation-delay: 0.15s;
   }
 
+  .nav-menu.open li:nth-child(2) {
+    animation-delay: 0.22s;
+  }
+
   .nav-menu.open li:nth-child(3) {
-    animation-delay: 0.2s;
+    animation-delay: 0.29s;
   }
 
   .nav-menu.open li:nth-child(4) {
-    animation-delay: 0.25s;
+    animation-delay: 0.36s;
   }
 
   .nav-menu.open li:nth-child(5) {
-    animation-delay: 0.3s;
+    animation-delay: 0.43s;
   }
 
   @keyframes menuItemFadeUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
 
     to {
@@ -2367,51 +2391,50 @@ ul {
     }
   }
 
-  /* Textos gigantes como en la referencia (sans-serif, bold, white) */
   .nav-menu.open a {
-    font-size: clamp(2.5rem, 10vw, 3.5rem);
-    font-weight: 900;
-    font-family: var(--font-sans);
-    color: var(--white);
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    font-weight: 800;
+    font-family: var(--font-main);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     display: inline-block;
-    /* needed para que la barrita tome el ancho de la palabra */
     position: relative;
-    padding-bottom: 8px;
-    /* espacio para la barrita */
-    transition: color 0.3s ease;
-  }
-
-  /* =========================================================
-     Animación Activa/Hover: Cambio de color + Barrita inferior
-     ========================================================= */
-  .nav-menu.open a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 4px;
-    background: var(--gold);
-    /* Barrita dorada/color acento */
-    border-radius: 2px;
-    transform: translateX(-50%);
-    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 8px 16px;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-text-stroke: 0;
   }
 
   /* Estado ACTIVO o HOVER en el celular */
   .nav-menu.open a.active,
   .nav-menu.open a:hover {
-    color: var(--gold);
-    /* La palabra cambia de color */
+    color: var(--white);
+    transform: scale(1.04);
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
   }
 
-  .nav-menu.open a.active::after,
-  .nav-menu.open a:hover::after {
-    width: 100%;
-    /* La barrita se despliega ocupando todo el ancho */
+  /* A gold dot indicator for active/hover */
+  .nav-menu.open a::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-menu.open a:hover::before,
+  .nav-menu.open a.active::before {
+    transform: translateY(-50%) scale(1);
+  }
+
+  .nav-menu.open a::after {
+    display: none;
   }
 
   /* ───────────────────────────────────────────────────────── */
@@ -2424,46 +2447,71 @@ ul {
     align-items: center;
     gap: 16px;
     opacity: 0;
-    animation: menuItemFadeUp 0.6s ease 0.4s forwards;
+    animation: menuItemFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.5s;
     width: 100%;
+    position: relative;
+  }
+
+  .nav-menu-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .nav-menu-social-icons {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     margin-bottom: 12px;
   }
 
   .nav-menu-social-icons a {
-    /* Reseteo del estilo a de nav-menu */
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     padding: 0;
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-text-stroke: 0 transparent;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s ease, filter 0.4s ease;
+  }
+
+  .nav-menu-social-icons a:hover {
+    color: var(--gold);
+    transform: scale(1.15) translateY(-4px);
+    filter: drop-shadow(0 4px 12px rgba(201, 162, 39, 0.3));
   }
 
   .nav-menu-social-icons a::after {
     display: none;
-    /* Quitamos la barrita en los iconos */
   }
 
   .nav-menu-footer p {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.6);
     letter-spacing: 0;
-    font-family: var(--font-sans);
+    font-family: var(--font-main);
     margin: 0;
   }
 
   .nav-menu-footer>a {
     /* Link de email */
     font-size: 1.1rem;
-    font-family: var(--font-sans);
-    font-weight: 800;
+    font-family: var(--font-main);
+    font-weight: 700;
     color: var(--white);
     letter-spacing: 0;
     text-transform: none;
+    -webkit-text-stroke: 0 !important;
     padding: 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu-footer>a:hover {
+    color: var(--gold);
   }
 
   .nav-menu-footer>a::after {

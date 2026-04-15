@@ -27,7 +27,7 @@ export function Navbar() {
   return (
     <nav
       id="navbar"
-      className={scrolled ? 'scrolled' : ''}
+      className={`${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`.trim()}
       role="navigation"
       aria-label="Navegación principal"
     >
