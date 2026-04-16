@@ -153,18 +153,19 @@ export default function Distribucion() {
                         <h2 className="section-title">Por qué elegir Aldeitas</h2>
                     </div>
 
-                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
                         {[
-                            { title: 'Producto que rota', desc: 'Pensado para el consumo real, no para quedar en freezer.' },
-                            { title: 'Sabor casero real', desc: 'Calidad que el cliente reconoce y vuelve a elegir.' },
-                            { title: 'Porciones abundantes', desc: 'Un diferencial claro frente a otras opciones.' },
-                            { title: 'Línea simple', desc: 'Fácil de trabajar, sin complejidad operativa.' },
-                            { title: 'Confianza en el servicio', desc: 'Cumplimiento en entregas y consistencia en el producto.' }
+                            { title: 'Producto que rota', desc: 'Pensado para el consumo real, no para quedar en freezer.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" /><path d="M16 16h5v5" /></svg> },
+                            { title: 'Sabor casero real', desc: 'Calidad que el cliente reconoce y vuelve a elegir.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 12s-4-5-4-8a4 4 0 1 1 8 0c0 3-4 8-4 8Z" /><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg> },
+                            { title: 'Porciones abundantes', desc: 'Un diferencial claro frente a otras opciones.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 6v12" /><path d="M6 12h12" /></svg> },
+                            { title: 'Línea simple', desc: 'Fácil de trabajar, sin complejidad operativa.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 12h6" /></svg> },
+                            { title: 'Confianza en el servicio', desc: 'Cumplimiento en entregas y consistencia en el producto.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg> }
                         ].map((d, i) => (
                             <AnimateOnScroll key={i} delay={i * 0.1}>
-                                <div style={{ background: 'var(--off-white)', padding: '40px', borderRadius: '32px', height: '100%', width: '380px', flexGrow: 1, maxWidth: '400px' }}>
-                                    <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--gold)', marginBottom: '16px' }}>{d.title}</h3>
-                                    <p style={{ color: 'var(--text-light)', lineHeight: 1.6 }}>{d.desc}</p>
+                                <div style={{ background: 'var(--off-white)', padding: '48px 40px', borderRadius: '32px', height: '100%', border: '1px solid rgba(0,0,0,0.03)', position: 'relative' }} className="hover-lift">
+                                    <div style={{ color: 'var(--gold)', marginBottom: '24px' }}>{d.icon}</div>
+                                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--dark)', marginBottom: '16px' }}>{d.title}</h3>
+                                    <p style={{ color: 'var(--text-light)', lineHeight: 1.7, fontSize: '1.05rem' }}>{d.desc}</p>
                                 </div>
                             </AnimateOnScroll>
                         ))}
@@ -181,19 +182,19 @@ export default function Distribucion() {
                             <h2 className="section-title">Empezar es simple</h2>
                         </div>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '24px' }}>
                             {[
-                                'Nos escribís por WhatsApp',
-                                'Te compartimos el catálogo de productos y precios',
-                                'Definís el pedido según tu necesidad',
-                                'Coordinamos entrega o retiro'
-                            ].map((step, i) => (
-                                <AnimateOnScroll key={i} delay={i * 0.1} direction="right">
-                                    <div style={{ background: 'white', padding: '24px 32px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '24px', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
-                                        <span style={{ width: '40px', height: '40px', background: 'var(--green)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, flexShrink: 0 }}>
-                                            {i + 1}
-                                        </span>
-                                        <span style={{ fontSize: '1.15rem', fontWeight: 600 }}>{step}</span>
+                                { step: 'WhatsApp', desc: 'Nos escribís por WhatsApp', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg> },
+                                { step: 'Catálogo', desc: 'Catálogo de productos y precios', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" /><path d="M8 7h6" /><path d="M8 11h8" /></svg> },
+                                { step: 'Pedido', desc: 'Definís tu pedido según necesidad', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg> },
+                                { step: 'Logística', desc: 'Coordinamos entrega o retiro', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 17h4V2" /><path d="M10 13h4" /><path d="M10 9h4" /><path d="M21 2h-1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h1" /><path d="M3 2h1c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H3" /></svg> }
+                            ].map((s, i) => (
+                                <AnimateOnScroll key={i} delay={i * 0.1}>
+                                    <div style={{ background: 'white', padding: '32px 24px', borderRadius: '24px', textAlign: 'center', height: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }} className="hover-lift">
+                                        <div style={{ width: '56px', height: '56px', background: 'var(--green-light)', color: 'var(--green)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            {s.icon}
+                                        </div>
+                                        <span style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--dark)' }}>{s.desc}</span>
                                     </div>
                                 </AnimateOnScroll>
                             ))}

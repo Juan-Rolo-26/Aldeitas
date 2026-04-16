@@ -60,7 +60,7 @@ export function Hero() {
     'Sin conservantes',
     'Entrega puntual',
     'Menú semanal variado',
-    'Certificado SENASA',
+    'Ingredientes frescos',
     'Más de 10 años'
   ]
 
@@ -126,7 +126,7 @@ export function Hero() {
         <motion.div className="hero-rating-row" variants={itemVariants}>
           <Stars />
           <span className="hero-rating-text">
-            Amado por <strong>+200 empresas</strong> en Santa Fe
+            Entregamos <strong>más de 30.000 viandas</strong> por mes
           </span>
         </motion.div>
 
@@ -160,10 +160,11 @@ export function Hero() {
         <motion.div className="hero-mini-stats" variants={itemVariants}>
           <AnimatedCounter value={10} prefix="+" suffix=" años" label="de experiencia" />
           <div className="hero-mini-divider" />
-          <AnimatedCounter value={5000} suffix="+" label="viandas diarias" />
+          <AnimatedCounter value={30000} suffix="+" label="viandas mensuales" />
           <div className="hero-mini-divider" />
           <AnimatedCounter value={200} prefix="+" label="clientes activos" />
         </motion.div>
+
       </motion.div>
 
       {/* ── MARQUEE bar ── */}

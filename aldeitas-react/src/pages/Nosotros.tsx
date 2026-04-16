@@ -84,6 +84,27 @@ export default function Nosotros() {
         </div>
       </section>
 
+      {/* TEAM SECTION */}
+      <section style={{ padding: '80px 0 120px' }}>
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '60px' }}>
+            <span className="section-label">El corazón de Aldeitas</span>
+            <h2 className="section-title">Nuestro Equipo</h2>
+            <p className="section-sub" style={{ margin: '0 auto' }}>Más de 20 profesionales comprometidos con la excelencia gastronómica.</p>
+          </div>
+
+          <AnimateOnScroll>
+            <div style={{ borderRadius: '50px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)', height: '600px' }}>
+              <img
+                src={`${import.meta.env.BASE_URL}assets/equipo_real.png`}
+                alt="El equipo completo de Aldeitas Food"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/* LOGOS / PARTNERS SECTION */}
       <section style={{ padding: '120px 0', background: 'var(--off-white)' }}>
         <div className="container">
@@ -91,11 +112,14 @@ export default function Nosotros() {
             <h2 className="section-title">Confían en nosotros</h2>
             <p className="section-sub">Líderes de industria que eligen calidad y puntualidad cada día.</p>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '60px', opacity: 0.6, filter: 'grayscale(100%)' }}>
-            {/* Simulating client logos */}
-            {['Paladini', 'SKF', 'Makro', 'Gerdau', 'General Motors', 'Metropolitano'].map(client => (
-              <div key={client} style={{ fontSize: '1.5rem', fontWeight: 900, fontFamily: 'var(--font-serif)', color: 'var(--dark)' }}>
-                {client}
+          <div className="logos-grid" style={{ opacity: 0.8 }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((index) => (
+              <div key={index} className="logo-item" style={{ minHeight: '100px', background: 'white' }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/marcas/${index}.png`}
+                  alt={`Cliente Aldeitas ${index}`}
+                  style={{ maxWidth: '80%', maxHeight: '60px', objectFit: 'contain' }}
+                />
               </div>
             ))}
           </div>

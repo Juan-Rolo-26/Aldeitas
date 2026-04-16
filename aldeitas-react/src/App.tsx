@@ -9,6 +9,7 @@ import { WhatsAppFloat } from '@/components/WhatsAppFloat'
 import { ZoomManager } from '@/components/ZoomManager'
 import { PageWrapper } from '@/components/PageWrapper'
 import { ScrollProgress } from '@/components/ScrollProgress'
+import ScrollToTop from '@/components/ScrollToTop'
 
 import Home from '@/pages/Home'
 import Nosotros from '@/pages/Nosotros'
@@ -45,6 +46,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router basename="/Aldeitas">
+      <ScrollToTop />
       <ZoomManager />
       <ScrollProgress />
       <AnnouncementBar />

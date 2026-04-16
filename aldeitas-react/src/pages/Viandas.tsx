@@ -132,11 +132,11 @@ export default function Viandas() {
             style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '30px' }}
           >
             {[
-              { num: '1', title: 'Definimos la necesidad', text: 'Analizamos la cantidad de personas, dinámicas y preferencias.' },
-              { num: '2', title: 'Diseñamos la propuesta', text: 'Armamos un servicio a medida para tu empresa.' },
-              { num: '3', title: 'Elección flexible', text: 'Cada empleado puede elegir su menú semanal desde una app, o la empresa puede definirlo.' },
-              { num: '4', title: 'Producción diaria', text: 'Cocinamos todos los días con procesos cuidados y foco en la calidad.' },
-              { num: '5', title: 'Entrega puntual', text: 'Llegamos en tiempo y forma, todos los días.' }
+              { num: '1', title: 'Definimos la necesidad', text: 'Analizamos la cantidad de personas, dinámicas y preferencias.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h.01" /><path d="M7 20h.01" /><path d="M17 20h.01" /><path d="M12 4v4" /><path d="M12 12v4" /><path d="M8 8V4h8v4" /></svg> },
+              { num: '2', title: 'Diseñamos la propuesta', text: 'Armamos un servicio a medida para tu empresa.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h.01" /><path d="M2 20h20" /><path d="M12 4v16" /><path d="M7 9h10" /></svg> },
+              { num: '3', title: 'Elección flexible', text: 'Elección desde nuestra App para cada empleado.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg> },
+              { num: '4', title: 'Producción diaria', text: 'Cocinamos todos los días con procesos cuidados.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6l.32-.23a1.5 1.5 0 0 0 .5-1.54l-.44-1.1s.14-.13.34-.13a1.5 1.5 0 0 1 1 .43l2 2a1.5 1.5 0 0 1 0 2.12" /><path d="m15.5 10.5 4.5 4.5a2 2 0 0 1 0 2.83l-1.67 1.67a2 2 0 0 1-2.83 0l-4.5-4.5" /></svg> },
+              { num: '5', title: 'Entrega puntual', text: 'Llegamos en tiempo y forma, todos los días.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="13" x="2" y="6" rx="2" /><path d="M16 9h4l3 3v5h-1" /><circle cx="6.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg> }
             ].map((step, idx) => (
               <motion.div
                 key={idx}
@@ -144,20 +144,14 @@ export default function Viandas() {
                 style={{ position: 'relative', padding: '40px 20px', textAlign: 'center' }}
               >
                 <div style={{
-                  width: '60px', height: '60px', background: 'var(--green-light)', color: 'var(--green)',
-                  borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '1.5rem', fontWeight: 800, margin: '0 auto 24px', position: 'relative', zIndex: 2
+                  width: '64px', height: '64px', background: 'var(--green-light)', color: 'var(--green)',
+                  borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 24px', position: 'relative', zIndex: 2, boxShadow: '0 8px 20px rgba(0,0,0,0.1)'
                 }}>
-                  {step.num}
+                  {step.icon}
                 </div>
-                {idx < 4 && (
-                  <div style={{
-                    position: 'absolute', top: '70px', left: 'calc(50% + 40px)', width: 'calc(100% - 80px)',
-                    height: '2px', background: 'var(--green-light)', zIndex: 1
-                  }} />
-                )}
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '12px', fontFamily: 'var(--font-serif)', color: 'var(--gold)' }}>{step.title}</h3>
-                <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>{step.text}</p>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '16px', color: 'var(--gold)' }}>{step.title}</h3>
+                <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>{step.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -174,15 +168,16 @@ export default function Viandas() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px' }}>
             {[
-              { title: 'Calidad real', text: 'Comida casera, bien hecha y con materia prima seleccionada.' },
-              { title: 'Porciones que realmente satisfacen', text: 'Una diferencia concreta frente a otras opciones del mercado.' },
-              { title: 'Cumplimiento y puntualidad', text: 'Sabemos que esto es parte de tu operación diaria.' },
-              { title: 'Adaptabilidad', text: 'Nos ajustamos a cada empresa, con opciones para distintos perfiles y necesidades.' }
+              { title: 'Calidad real', text: 'Comida casera, bien hecha y con materia prima seleccionada.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg> },
+              { title: 'Porciones abundantes', text: 'Una diferencia concreta frente a otras opciones del mercado.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8v8" /><path d="M8 12h8" /></svg> },
+              { title: 'Cumplimiento', text: 'Sabemos que esto es parte de tu operación diaria.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg> },
+              { title: 'Adaptabilidad', text: 'Nos ajustamos con opciones para distintos perfiles.', icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21 16-4-4 4-4" /><path d="M17 12H3" /><path d="m3 8 4 4-4 4" /></svg> }
             ].map((item, idx) => (
               <AnimateOnScroll key={idx} delay={idx * 0.1}>
-                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '40px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)', height: '100%' }}>
-                  <h3 style={{ fontSize: '1.4rem', color: 'var(--gold)', marginBottom: '16px', fontFamily: 'var(--font-serif)' }}>{item.title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>{item.text}</p>
+                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '48px 40px', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.1)', height: '100%' }} className="hover-lift">
+                  <div style={{ color: 'var(--gold)', marginBottom: '24px' }}>{item.icon}</div>
+                  <h3 style={{ fontSize: '1.4rem', color: 'var(--white)', fontWeight: 800, marginBottom: '16px' }}>{item.title}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, fontSize: '1.05rem' }}>{item.text}</p>
                 </div>
               </AnimateOnScroll>
             ))}
