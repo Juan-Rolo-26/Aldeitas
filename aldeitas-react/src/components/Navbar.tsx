@@ -60,7 +60,20 @@ export function Navbar() {
             <li><NavLink to="/congelados" onClick={closeMenu}>Congelados</NavLink></li>
             <li><NavLink to="/distribucion" onClick={closeMenu}>Distribución</NavLink></li>
             <li><NavLink to="/contacto" onClick={closeMenu}>Contacto</NavLink></li>
-            <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
+            <li>
+              <NavLink to="/blog" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Blog
+                <span style={{
+                  fontSize: '0.6rem',
+                  background: 'var(--blue-light)',
+                  color: 'var(--blue)',
+                  padding: '2px 8px',
+                  borderRadius: '10px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase'
+                }}>Próximamente</span>
+              </NavLink>
+            </li>
             {menuOpen && (
               <div className="nav-menu-footer">
                 <div className="nav-menu-social-icons">

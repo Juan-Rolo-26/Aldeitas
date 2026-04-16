@@ -1,103 +1,159 @@
 import { motion } from 'framer-motion'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
-import { ModalTrigger } from '@/components/ModalTrigger'
+
+const WA_NUMBER = import.meta.env.VITE_WA_NUMBER || '5493413190087'
 
 export default function Contacto() {
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa saber más sobre los servicios de Aldeitas.')}`
+
   return (
-    <main className="contacto-page" style={{ paddingTop: '120px' }}>
-      <section style={{ padding: '60px 0 120px' }}>
-        <div className="container">
-          <div className="page-split-grid" style={{ gap: '80px' }}>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="section-label">Hablemos</span>
-              <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)' }}>¿Cómo podemos ayudarte?</h1>
-              <p className="section-sub" style={{ marginBottom: '48px' }}>
-                Estamos listos para potenciar la alimentación de tu equipo o negocio.
-                Elegí la opción que mejor se adapte a tu necesidad y un asesor te contactará a la brevedad.
+    <main className="contacto-page">
+      {/* IMPACT HERO SECTION - SPLIT SCREEN */}
+      <section className="contacto-hero">
+        <div className="contacto-hero-img">
+          <motion.img
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`}
+            alt="Nuestra Cocina"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent, rgba(0,0,0,0.4))' }} />
+        </div>
+
+        <div className="contacto-hero-content">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <span className="section-label" style={{ color: 'var(--green)' }}>Contacto</span>
+            <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '32px' }}>
+              Hablemos.
+            </h1>
+            <p className="section-sub" style={{ fontSize: '1.3rem', marginBottom: '48px', color: 'var(--text-light)' }}>
+              Contanos qué necesitás y <em>vemos juntos la mejor forma de resolverlo.</em>
+            </p>
+
+            <div style={{ background: 'var(--off-white)', padding: '30px', borderRadius: '30px', borderLeft: '5px solid var(--gold)' }}>
+              <p style={{ fontWeight: 600, color: 'var(--dark)' }}>
+                Propuestas a medida para empresas, comercios y distribuidores.
               </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                  <div style={{ width: '60px', height: '60px', background: 'var(--green-light)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📍</div>
-                  <div>
-                    <h4 style={{ fontWeight: 800 }}>Visitamos en nuestra cocina</h4>
-                    <p style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>Jose M. Rosas 3115 bis, Rosario, SF.</p>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                  <div style={{ width: '60px', height: '60px', background: 'var(--gold-light)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📞</div>
-                  <div>
-                    <h4 style={{ fontWeight: 800 }}>Atención inmediata</h4>
-                    <p style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>Lun a Vie, 8 a 17 hs.</p>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                  <div style={{ width: '60px', height: '60px', background: 'var(--blue-light)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>✉️</div>
-                  <div>
-                    <h4 style={{ fontWeight: 800 }}>Escribinos</h4>
-                    <p style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>hola@aldeitasfood.com.ar</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '30px' }}>
-              <AnimateOnScroll direction="right">
-                <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '35px', boxShadow: 'var(--shadow-hover)', border: '1px solid rgba(0,0,0,0.05)', transition: 'transform 0.3s ease' }} className="hover-lift">
-                  <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>Corporativo</h3>
-                    <span style={{ padding: '6px 14px', background: 'var(--green-light)', color: 'var(--green)', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase' }}>Empresas</span>
-                  </div>
-                  <p style={{ color: 'var(--text-light)', marginBottom: '32px', lineHeight: 1.6 }}>
-                    Si buscás viandas diarias para tu equipo, catering corporativo o soluciones para grandes plantas industriales.
-                  </p>
-                  <ModalTrigger tipo="empresa" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                    Solicitar Propuesta B2B
-                  </ModalTrigger>
-                </div>
-              </AnimateOnScroll>
-
-              <AnimateOnScroll direction="right" delay={0.2}>
-                <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '35px', boxShadow: 'var(--shadow-hover)', border: '1px solid rgba(0,0,0,0.05)' }} className="hover-lift">
-                  <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-serif)', fontWeight: 700 }}>Retail / Hogar</h3>
-                    <span style={{ padding: '6px 14px', background: 'var(--gold-light)', color: 'var(--gold)', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase' }}>Congelados</span>
-                  </div>
-                  <p style={{ color: 'var(--text-light)', marginBottom: '32px', lineHeight: 1.6 }}>
-                    Para compras particulares, stock para tu local o distribución de nuestra línea de productos IQF.
-                  </p>
-                  <ModalTrigger tipo="congelados" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
-                    Consultar Catálogo
-                  </ModalTrigger>
-                </div>
-              </AnimateOnScroll>
             </div>
-          </div>
+
+            <div style={{ marginTop: '48px' }}>
+              <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '20px 48px', fontSize: '1.1rem', width: '100%', justifyContent: 'center' }}>
+                Escribir por WhatsApp
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* MAP OR FINAL CTA */}
-      <section style={{ padding: '0 0 100px' }}>
+      {/* CONTACT CHANNELS HUB */}
+      <section style={{ padding: '120px 0', background: 'var(--off-white)' }}>
         <div className="container">
-          <div style={{ height: '400px', background: '#eee', borderRadius: '40px', overflow: 'hidden', position: 'relative' }}>
-            <img
-              src={`${import.meta.env.BASE_URL}assets/cocina_oficio.png`}
-              alt="Nuestra Cocina"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
-            />
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ background: 'var(--white)', padding: '30px 50px', borderRadius: '20px', boxShadow: 'var(--shadow)', textAlign: 'center' }}>
-                <h4 style={{ fontWeight: 800, marginBottom: '8px' }}>Vení a conocernos</h4>
-                <p style={{ color: 'var(--text-light)' }}>Transparencia total en cada proceso.</p>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <h2 className="section-title" style={{ fontSize: '2.5rem' }}>Canales Oficiales</h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
+            {/* WhatsApp Card */}
+            <AnimateOnScroll direction="up">
+              <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '40px', textAlign: 'center' }} className="hover-lift">
+                <div style={{ width: '80px', height: '80px', background: 'var(--green-light)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 32px', color: 'var(--green)' }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+                </div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px' }}>WhatsApp</h3>
+                <p style={{ color: 'var(--text-light)', marginBottom: '32px' }}>Respuesta inmediata para consultas comerciales y pedidos.</p>
+                <a href={waLink} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--green)', fontWeight: 800, textDecoration: 'none', fontSize: '1.1rem' }}>Chatear ahora →</a>
               </div>
-            </div>
+            </AnimateOnScroll>
+
+            {/* Email Card */}
+            <AnimateOnScroll direction="up" delay={0.1}>
+              <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '40px', textAlign: 'center' }} className="hover-lift">
+                <div style={{ width: '80px', height: '80px', background: 'var(--blue-light)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 32px', color: 'var(--blue)' }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                </div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px' }}>E-mail</h3>
+                <p style={{ color: 'var(--text-light)', marginBottom: '32px' }}>Para propuestas formales, CVs o información general.</p>
+                <a href="mailto:Aldeitasfood6@gmail.com" style={{ color: 'var(--blue)', fontWeight: 800, textDecoration: 'none', fontSize: '1.1rem' }}>Aldeitasfood6@gmail.com</a>
+              </div>
+            </AnimateOnScroll>
+
+            {/* Location Card */}
+            <AnimateOnScroll direction="up" delay={0.2}>
+              <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '40px', textAlign: 'center' }} className="hover-lift">
+                <div style={{ width: '80px', height: '80px', background: 'var(--gold-light)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 32px', color: 'var(--gold)' }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                </div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px' }}>Ubicación</h3>
+                <p style={{ color: 'var(--text-light)', marginBottom: '32px' }}>Visitá nuestra cocina central en el corazón de Rosario.</p>
+                <p style={{ color: 'var(--dark)', fontWeight: 700, fontSize: '1rem' }}>José M. Rosas 3115 bis, Rosario</p>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
-    </main >
+
+      {/* ORIENTATION BLOCK */}
+      <section style={{ padding: '140px 0' }}>
+        <div className="container">
+          <div className="page-split-grid" style={{ alignItems: 'center', gap: '80px' }}>
+            <AnimateOnScroll direction="left">
+              <div style={{ borderRadius: '50px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (53).jpg`}
+                  alt="Servicios Aldeitas"
+                  style={{ width: '100%', height: '600px', objectFit: 'cover' }}
+                />
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll direction="right">
+              <div>
+                <span className="section-label">Guía de Soluciones</span>
+                <h2 className="section-title" style={{ fontSize: '2.8rem' }}>¿Qué estás buscando hoy?</h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', marginTop: '40px' }}>
+                  {[
+                    { t: 'Resolver el almuerzo corporativo', d: 'Viandas frescas y equilibradas para tu equipo diario.' },
+                    { t: 'Sumar congelados a tu negocio', d: 'Stockea tu local con productos de alta rotación.' },
+                    { t: 'Ser distribuidor oficial', d: 'Llevá la calidad de Aldeitas a tu propia red.' }
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', gap: '20px' }}>
+                      <span style={{ color: 'var(--gold)', fontSize: '1.5rem', fontWeight: 900 }}>✓</span>
+                      <div>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>{item.t}</h4>
+                        <p style={{ color: 'var(--text-light)' }}>{item.d}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p style={{ marginTop: '50px', fontSize: '1.2rem', fontWeight: 700, color: 'var(--green)' }}>
+                  Estamos para ayudarte a escalar.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* REFUERZO FINAL */}
+      <section style={{ padding: '100px 0', background: 'var(--blue)', color: 'white', textAlign: 'center' }}>
+        <div className="container">
+          <h2 className="section-title" style={{ color: 'white', fontSize: '3rem', marginBottom: '40px' }}>Respondemos rápido y sin compromiso.</h2>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn btn-white" style={{ padding: '20px 48px', fontSize: '1.1rem' }}>
+              Contactar por WhatsApp
+            </a>
+            <a href="mailto:Aldeitasfood6@gmail.com" className="btn btn-outline-white" style={{ padding: '20px 48px', fontSize: '1.1rem' }}>
+              Enviar un E-mail
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
