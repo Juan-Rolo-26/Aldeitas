@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Congelados Aldeitas – Tartas, Pizzas y más. Ricos y listos en minutos.</title>
+  <meta name="description" content="Descubrí los congelados de Aldeitas. Tartas, pizzas, empanadas y más. Hechos con ingredientes frescos, listos para calentar. Pedí por WhatsApp." />
+  <link rel="icon" type="image/png" href="/Assets/Logo_Final-removebg-preview.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1507580230885303');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1507580230885303&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --green:#1f4d1f;--green-light:#f4f8ed;--green-mid:#2d6a2d;
+      --gold:#c9a227;--gold-light:#f5e9c2;
+      --blue:#185fa5;--blue-light:#e6f1fb;--blue-mid:#1a6fc4;
+      --white:#ffffff;--off-white:#fafafa;--gray-light:#f5f5f5;--gray:#888;
+      --dark:#1a1a1a;--text:#333333;--text-light:#666666;
+      --radius:10px;--radius-lg:18px;
+      --shadow:0 4px 24px rgba(0,0,0,0.08);--shadow-hover:0 12px 48px rgba(0,0,0,0.12);
+      --transition:0.4s cubic-bezier(0.16,1,0.3,1);--transition-slow:0.8s cubic-bezier(0.16,1,0.3,1);
+      --font-main:'Inter',sans-serif;--font-serif:'Playfair Display',serif;
+    }
+    html{scroll-behavior:smooth;font-size:18px}
+    body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+
+    /* ── ANNOUNCEMENT BAR ── */
+    #announcement-bar{
+      position:fixed;top:0;left:0;right:0;z-index:1100;
+      min-height:40px;background:#111;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:8px 16px;overflow:hidden;
+    }
+    .ann-text-wrap{flex:1;max-width:700px;text-align:center;min-height:24px;display:flex;align-items:center;justify-content:center;margin:0 auto;position:relative}
+    .ann-text{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);width:100%;padding:0 8px;line-height:1.3;animation:.35s cubic-bezier(.4,0,.2,1) both annEnter}
+    @keyframes annEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .ann-exit-left{animation:.32s cubic-bezier(.4,0,.2,1) both annExitLeft}
+    @keyframes annExitLeft{to{opacity:0;transform:translateY(-12px)}}
+    .ann-arrow{background:none;border:none;color:rgba(255,255,255,.55);cursor:pointer;padding:6px 12px;display:flex;align-items:center;transition:color .2s;flex-shrink:0}
+    .ann-arrow:hover{color:#fff}
+    @media(max-width:600px){.ann-text{font-size:.65rem}}
+
+    /* ── NAVBAR ── */
+    #navbar{
+      position:fixed;top:40px;left:0;right:0;z-index:1000;
+      height:80px;background:rgba(255,255,255,.97);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      display:flex;align-items:center;padding:0 40px;
+      transition:height .35s,background .35s,box-shadow .35s;
+    }
+    #navbar.scrolled{height:64px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);box-shadow:0 4px 24px -6px rgba(0,0,0,.1)}
+    #navbar.menu-open{backdrop-filter:none!important;background:transparent!important;border-bottom:none!important;box-shadow:none!important}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;width:100%;gap:24px}
+    .nav-logo{display:flex;align-items:center;gap:12px;transition:opacity .3s,filter .35s;position:relative;z-index:1001}
+    .nav-logo:hover{opacity:.82}
+    #navbar.menu-open .nav-logo{filter:brightness(0) invert(1)}
+    .nav-logo img{height:60px;width:auto;transition:height .35s}
+    #navbar.scrolled .nav-logo img{height:46px}
+    .nav-brand-text{font-family:var(--font-serif);font-weight:800;font-size:1.4rem;line-height:1.1;color:var(--green);text-transform:uppercase;display:flex;flex-direction:column}
+    .nav-brand-sub{font-size:.9rem;color:var(--gold);letter-spacing:.15em}
+    .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:32px}
+    .nav-menu{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-menu li{display:flex;align-items:center}
+    .nav-menu a{font-size:.95rem;font-weight:500;color:#3a3a3a;letter-spacing:.01em;position:relative;transition:color .25s;padding-bottom:2px}
+    .nav-menu a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--blue);border-radius:2px;transition:width .3s cubic-bezier(.4,0,.2,1)}
+    .nav-menu a:hover,.nav-menu a.active{color:var(--blue)}
+    .nav-menu a:hover::after,.nav-menu a.active::after{width:100%}
+    .nav-badge{font-size:.6rem;background:var(--blue-light);color:var(--blue);padding:2px 8px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:6px}
+    .nav-toggle{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:8px;background:none;border:none;border-radius:8px;z-index:1000}
+    .nav-toggle span{display:block;width:26px;height:2px;background:var(--blue);border-radius:4px;transition:all .4s cubic-bezier(.16,1,.3,1);transform-origin:center}
+    .nav-toggle span.open{background:var(--white)}
+    .nav-toggle span.open:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+    .nav-toggle span.open:nth-child(2){opacity:0;transform:scaleX(0)}
+    .nav-toggle span.open:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+    .nav-mobile-overlay{position:fixed;inset:80px 0 0;background:#fff;z-index:999;display:none;flex-direction:column;padding:60px 40px;animation:mobileSlideDown .3s ease}
+    .nav-mobile-overlay.open{display:flex}
+    @keyframes mobileSlideDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+    .nav-mobile-links{display:flex;flex-direction:column;gap:28px;list-style:none}
+    .nav-mobile-links a{font-size:1.6rem;font-weight:600;color:#1a1a1a;font-family:var(--font-serif);transition:color .25s}
+    .nav-mobile-links a:hover{color:var(--blue)}
+    @media(max-width:1024px){#navbar{padding:0 32px}.nav-menu{display:none}.nav-toggle{display:flex}}
+    @media(max-width:480px){.nav-logo img{height:36px}}
+
+    /* ── HERO ── */
+    #hero{
+      position:relative;display:grid;
+      grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;
+      min-height:100vh;overflow:hidden;padding-top:120px;
+    }
+    .hero-media{position:relative;grid-row:1/2;grid-column:1/2;overflow:hidden;background:#0a1a2a}
+    .hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+    .hero-media-overlay{position:absolute;inset:0;background:linear-gradient(140deg,rgba(10,20,40,.28) 0%,rgba(10,20,40,.08) 60%,rgba(10,20,40,.22) 100%);pointer-events:none;z-index:1}
+    .hero-pause-btn{position:absolute;top:20px;right:20px;z-index:3;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s}
+    .hero-pause-btn:hover{background:rgba(255,255,255,.32)}
+    .hero-content-col{grid-row:1/2;grid-column:2/3;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0d2f52;gap:0;animation:heroFadeUp .7s ease both}
+    @keyframes heroFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    .hero-stars{display:flex;justify-content:center;gap:3px;color:var(--gold);margin-bottom:10px}
+    .hero-rating-row{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:28px;text-align:center}
+    .hero-rating-text{font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+    .hero-rating-text strong{color:var(--gold);font-weight:700}
+    .hero-headline{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.03em;margin-bottom:22px;text-align:center;width:100%}
+    .hero-headline em{font-style:italic;font-weight:700;color:var(--gold)}
+    .hero-subtext{font-size:1rem;color:rgba(255,255,255,.85);line-height:1.72;max-width:600px;margin:0 auto 36px;text-align:center}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:#0d2f52;font-size:.82rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:18px 40px;border-radius:6px;align-self:center;transition:background .25s,transform .2s,box-shadow .25s;margin-bottom:44px}
+    .hero-cta:hover{background:var(--gold);color:var(--white);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.28)}
+    .hero-mini-stats{display:flex;align-items:center;justify-content:space-between;width:100%;gap:0;border-top:1px solid rgba(255,255,255,.15);padding-top:28px}
+    .hero-mini-divider{width:1px;height:38px;background:rgba(255,255,255,.15);margin:0}
+    .hero-stat{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;gap:3px}
+    .hero-stat-num{font-family:var(--font-serif);font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:700;color:var(--gold);line-height:1;letter-spacing:-.02em}
+    .hero-stat-label{font-size:.72rem;color:rgba(255,255,255,.75);letter-spacing:.04em;text-transform:uppercase;font-weight:500;white-space:nowrap}
+    .hero-marquee-bar{grid-column:1/3;grid-row:2/3;background:var(--gold);overflow:hidden;padding:14px 0;white-space:nowrap}
+    .hero-marquee-track{display:inline-flex;animation:marqueeScroll 28s linear infinite}
+    @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .hero-marquee-item{display:inline-flex;align-items:center;gap:10px;padding:0 32px;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--dark)}
+    .hero-marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--white);flex-shrink:0}
+    @media(max-width:900px){
+      #hero{grid-template-columns:1fr;grid-template-rows:52vw 1fr auto}
+      .hero-media{grid-row:1/2;grid-column:1/2;height:52vw;min-height:260px;position:relative}
+      .hero-media video{position:absolute}
+      .hero-content-col{grid-row:2/3;grid-column:1/2;padding:48px 28px}
+      .hero-headline{font-size:clamp(2rem,7vw,3rem);white-space:normal}
+      .hero-cta{align-self:stretch;justify-content:center}
+      .hero-marquee-bar{grid-row:3/4;grid-column:1/2}
+    }
+    @media(max-width:480px){.hero-content-col{padding:36px 20px}.hero-mini-stats{gap:4px}}
+
+    /* ── SECTIONS COMUNES ── */
+    section{padding:100px 0}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+    .section-label{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .section-title{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;color:var(--dark);line-height:1.1;margin-bottom:24px;letter-spacing:-.03em}
+    .section-title span{color:var(--blue)}
+    .section-sub{font-size:1.1rem;font-weight:400;color:var(--text-light);line-height:1.6}
+    .text-center{text-align:center}
+    .text-center .section-sub{margin:0 auto}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--transition);border:2px solid transparent;white-space:nowrap}
+    .btn-primary{background:var(--blue);color:var(--white);border-color:var(--blue)}
+    .btn-primary:hover{background:var(--blue-mid);border-color:var(--blue-mid);transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(24,95,165,.4)}
+    .btn-gold{background:transparent;color:var(--gold);border-color:var(--gold);border-width:1px}
+    .btn-gold:hover{background:var(--gold);color:var(--white);transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(201,162,39,.4)}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:.92rem;font-weight:700;padding:16px 32px;border-radius:50px;transition:var(--transition);box-shadow:0 8px 28px rgba(37,211,102,.35)}
+    .btn-wa:hover{background:#1fba59;transform:translateY(-3px) scale(1.03);box-shadow:0 14px 40px rgba(37,211,102,.45)}
+    .btn-wa svg{width:22px;height:22px;flex-shrink:0}
+
+    /* ── PRODUCTOS ── */
+    #productos{background:var(--off-white)}
+    .productos-header{text-align:center;margin-bottom:64px}
+    .productos-header .section-sub{max-width:560px;margin:0 auto}
+    .productos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .prod-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;position:relative}
+    .prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--blue);transform:scaleX(0);transform-origin:0;transition:transform .3s}
+    .prod-card:hover::before{transform:scaleX(1)}
+    .prod-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover)}
+    .prod-img{aspect-ratio:4/3;overflow:hidden;background:var(--blue-light);position:relative}
+    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .prod-card:hover .prod-img img{transform:scale(1.05)}
+    .prod-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,var(--blue-light),#d0e8f8)}
+    .prod-body{padding:28px}
+    .prod-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);border-radius:50px;padding:4px 12px;margin-bottom:10px}
+    .prod-title{font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+    .prod-desc{font-size:.88rem;color:var(--text-light);line-height:1.65}
+    @media(max-width:900px){.productos-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.productos-grid{grid-template-columns:1fr}}
+
+    /* ── POR QUÉ (imagen + texto full-width) ── */
+    #por-que{background:#fff;padding:0}
+    .porq-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;width:100%;min-height:560px}
+    .porq-img-col{position:relative;overflow:hidden}
+    .porq-img-col img{width:100%;height:100%;object-fit:cover;transition:transform var(--transition-slow)}
+    .porq-img-col:hover img{transform:scale(1.04)}
+    .porq-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,20,40,.18) 0%,rgba(10,20,40,.05) 100%);pointer-events:none}
+    .porq-content{background:var(--blue-light);display:flex;flex-direction:column;justify-content:center;padding:80px 8%}
+    .features-list{display:flex;flex-direction:column;gap:16px;margin:28px 0 36px}
+    .feat-item{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:var(--radius);background:#fff;border-left:4px solid var(--blue);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .25s,box-shadow .25s}
+    .feat-item:hover{transform:translateX(4px);box-shadow:0 4px 20px rgba(24,95,165,.1)}
+    .feat-icon{font-size:1.4rem;flex-shrink:0;line-height:1}
+    .feat-content strong{display:block;font-size:.98rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+    .feat-content span{font-size:.88rem;color:var(--text-light);line-height:1.55}
+    @media(max-width:900px){.porq-grid{grid-template-columns:1fr}.porq-img-col{aspect-ratio:16/9}.porq-content{padding:60px 8%}}
+
+    /* ── CÓMO LLEGA ── */
+    #como-llega{background:linear-gradient(135deg,#0d3d6e 0%,var(--blue) 55%,var(--blue-mid) 100%)}
+    #como-llega .section-label{color:var(--gold)}
+    #como-llega .section-title{color:#fff}
+    #como-llega .section-title span{color:var(--gold)}
+    #como-llega .section-sub{color:rgba(255,255,255,.75)}
+    .steps-header{text-align:center;margin-bottom:64px}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;position:relative}
+    .steps-grid::before{content:'';position:absolute;top:36px;left:calc(100%/6);right:calc(100%/6);height:2px;background:rgba(255,255,255,.15);z-index:0}
+    .step-card{text-align:center;padding:40px 28px;position:relative;z-index:1}
+    .step-num{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem}
+    .step-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px}
+    .step-desc{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.65}
+    @media(max-width:900px){.steps-grid{grid-template-columns:1fr}.steps-grid::before{display:none}}
+
+    /* ── QUIÉNES SOMOS ── */
+    #quienes{background:var(--off-white);padding:0}
+    .quienes-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;width:100%;min-height:500px}
+    .quienes-img{position:relative;overflow:hidden}
+    .quienes-img img{width:100%;height:100%;object-fit:cover}
+    .quienes-content{background:var(--green-light);display:flex;flex-direction:column;justify-content:center;padding:80px 8%}
+    .quote-block{font-family:var(--font-serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--dark);line-height:1.35;font-style:italic;position:relative;padding-left:28px;margin-bottom:28px;border-left:4px solid var(--blue)}
+    .autoridad-text{font-size:1rem;color:var(--text-light);line-height:1.7;margin-bottom:20px}
+    .firma{display:flex;align-items:center;gap:12px;margin-top:8px}
+    .firma-ava{width:44px;height:44px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0}
+    .firma-info strong{display:block;font-size:.9rem;font-weight:700;color:var(--dark)}
+    .firma-info span{font-size:.78rem;color:var(--text-light)}
+    @media(max-width:900px){.quienes-grid{grid-template-columns:1fr}.quienes-img{aspect-ratio:16/9}.quienes-content{padding:60px 8%}}
+
+    /* ── CTA FINAL ── */
+    #cta-final{background:linear-gradient(135deg,#0d3d6e 0%,var(--blue) 50%,var(--blue-mid) 100%);padding:100px 0;position:relative;overflow:hidden;text-align:center}
+    #cta-final::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(201,162,39,.08);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:20px}
+    .cta-headline{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:700;color:#fff;line-height:1.12;letter-spacing:-.03em}
+    .cta-headline em{color:var(--gold);font-style:italic}
+    .cta-sub{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:560px;line-height:1.65}
+
+    /* ── FOOTER ── */
+    #footer{background:#111;padding:72px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-brand img{height:58px;width:auto;margin-bottom:20px}
+    .footer-brand p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:280px}
+    .footer-social{display:flex;gap:12px;margin-top:24px}
+    .social-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:background .25s,color .25s}
+    .social-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+    .footer-nav{display:flex;flex-direction:column;gap:12px}
+    .footer-nav a{font-size:.88rem;color:rgba(255,255,255,.65);transition:color .25s}
+    .footer-nav a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+    .footer-contact-icon{color:var(--gold);flex-shrink:0;margin-top:2px}
+    .footer-contact-item span{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:24px 0;font-size:.78rem;color:rgba(255,255,255,.35)}
+    .footer-bottom-links{display:flex;gap:16px}
+    .footer-bottom-links a{color:rgba(255,255,255,.4);font-size:.78rem;transition:color .25s}
+    .footer-bottom-links a:hover{color:var(--gold)}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+
+    /* ── WA FLOAT ── */
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:900;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .25s,box-shadow .25s}
+    .wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.55)}
+
+    /* ── FADE UP ── */
+    .fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+  <!-- ── ANNOUNCEMENT BAR ── -->
+  <div id="announcement-bar" role="region" aria-label="Anuncios">
+    <button class="ann-arrow" id="ann-prev" aria-label="Frase anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="ann-text-wrap"><span class="ann-text" id="ann-text">❄️ Congelados artesanales — sin conservantes ni aditivos</span></div>
+    <button class="ann-arrow" id="ann-next" aria-label="Frase siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="14" height="14"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="https://aldeitas.com.ar" class="nav-logo" aria-label="Aldeitas Food — Inicio">
+        <img src="/Assets/Logo_Final-removebg-preview.png" alt="Aldeitas Food" />
+        <span class="nav-brand-text">Aldeitas<span class="nav-brand-sub">Food</span></span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-menu" role="list">
+          <li><a href="https://aldeitas.com.ar/viandas-corporativas">Viandas</a></li>
+          <li><a href="https://aldeitas.com.ar/congelados" class="active">Congelados</a></li>
+          <li><a href="https://aldeitas.com.ar/distribucion">Distribución</a></li>
+          <li><a href="https://aldeitas.com.ar/contacto">Contacto</a></li>
+          <li><a href="https://aldeitas.com.ar/blog">Blog <span class="nav-badge">Próximamente</span></a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="nav-mobile-overlay" id="mobile-menu" role="dialog" aria-label="Menú móvil">
+    <ul class="nav-mobile-links" role="list">
+      <li><a href="https://aldeitas.com.ar/viandas-corporativas">Viandas</a></li>
+      <li><a href="https://aldeitas.com.ar/congelados" class="active">Congelados</a></li>
+      <li><a href="https://aldeitas.com.ar/distribucion">Distribución</a></li>
+      <li><a href="https://aldeitas.com.ar/contacto">Contacto</a></li>
+      <li><a href="https://aldeitas.com.ar/blog">Blog</a></li>
+    </ul>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero" aria-label="Congelados Aldeitas">
+
+    <!-- LEFT: video -->
+    <div class="hero-media">
+      <video autoplay muted loop playsinline preload="auto"
+        poster="/Assets/Congelados1.png"
+        src="/Assets/video_hero.mp4">
+      </video>
+      <div class="hero-media-overlay"></div>
+      <button class="hero-pause-btn" id="pause-btn" aria-label="Pausar video">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+    </div>
+
+    <!-- RIGHT: content -->
+    <div class="hero-content-col">
+      <div class="hero-rating-row">
+        <div class="hero-stars" aria-label="5 estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="hero-rating-text">Elaborados con <strong>ingredientes frescos</strong> todos los días</span>
+      </div>
+
+      <h1 class="hero-headline">Rico, fácil y<br><em>listo en minutos.</em></h1>
+
+      <p class="hero-subtext">Tartas, pizzas, empanadas y más. Cocina casera de verdad, lista para calentar. Sin conservantes, sin complicaciones.</p>
+
+      <a href="https://wa.me/5493413190087?text=Hola%20Aldeitas%2C%20quiero%20ver%20los%20congelados%20disponibles" class="hero-cta" target="_blank" rel="noopener noreferrer">
+        Pedir ahora por WhatsApp
+      </a>
+
+      <div class="hero-mini-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Artesanal</span>
+        </div>
+        <div class="hero-mini-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">0</span>
+          <span class="hero-stat-label">Conservantes</span>
+        </div>
+        <div class="hero-mini-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">+10</span>
+          <span class="hero-stat-label">Años de cocina</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARQUEE BAR -->
+    <div class="hero-marquee-bar" aria-hidden="true">
+      <div class="hero-marquee-track">
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Tartas artesanales</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Pizzas caseras</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Empanadas rellenas</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Sin conservantes</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Listo en minutos</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Ingredientes frescos</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Cocina propia</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Tartas artesanales</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Pizzas caseras</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Empanadas rellenas</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Sin conservantes</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Listo en minutos</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Ingredientes frescos</span>
+        <span class="hero-marquee-item"><span class="hero-marquee-dot"></span>Cocina propia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTOS ── -->
+  <section id="productos">
+    <div class="container">
+      <div class="productos-header fade-up">
+        <span class="section-label">Nuestros productos</span>
+        <h2 class="section-title">Lo que <span>preparamos</span> para vos</h2>
+        <p class="section-sub">Recetas caseras con ingredientes frescos. Listo para calentar y disfrutar cuando querés.</p>
+      </div>
+      <div class="productos-grid">
+
+        <div class="prod-card fade-up">
+          <div class="prod-img">
+            <img src="/Assets/Landings%20Congelados/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202026-04-16T224615.905.png" alt="Tartas Aldeitas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="prod-emoji" style="display:none">🥧</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Clásico</span>
+            <h3 class="prod-title">Tartas</h3>
+            <p class="prod-desc">Rellenas con los mejores ingredientes. Espinaca, jamón y queso, y muchas variedades. Ideales para cualquier momento del día.</p>
+          </div>
+        </div>
+
+        <div class="prod-card fade-up" style="transition-delay:.1s">
+          <div class="prod-img">
+            <img src="/Assets/Landings%20Congelados/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202026-04-16T225222.295.png" alt="Pizzas Aldeitas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="prod-emoji" style="display:none">🍕</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Favorita</span>
+            <h3 class="prod-title">Pizzas</h3>
+            <p class="prod-desc">Masa crocante y relleno generoso. Mozzarella, napolitana, fugazza y más. Perfecta para compartir o para una noche tranquila.</p>
+          </div>
+        </div>
+
+        <div class="prod-card fade-up" style="transition-delay:.2s">
+          <div class="prod-img">
+            <img src="/Assets/Landings%20Congelados/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202026-04-16T225949.451.png" alt="Empanadas Aldeitas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="prod-emoji" style="display:none">🥟</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Infaltable</span>
+            <h3 class="prod-title">Empanadas</h3>
+            <p class="prod-desc">Carne, pollo, jamón y queso, caprese y más sabores. Masa tierna y relleno abundante. Ideales para compartir.</p>
+          </div>
+        </div>
+
+        <div class="prod-card fade-up" style="transition-delay:.1s">
+          <div class="prod-img">
+            <img src="/Assets/Landings%20Congelados/Dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202026-04-16T230456.694.png" alt="Ensaladas Aldeitas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="prod-emoji" style="display:none">🥗</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Saludable</span>
+            <h3 class="prod-title">Ensaladas</h3>
+            <p class="prod-desc">Frescas y nutritivas, preparadas con ingredientes de primera. Listas para acompañar cualquier plato principal.</p>
+          </div>
+        </div>
+
+        <div class="prod-card fade-up" style="transition-delay:.2s">
+          <div class="prod-img">
+            <img src="/Assets/Landings%20Congelados/Copia%20de%20Filet%20de%20merluza.png" alt="Platos de autor Aldeitas" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="prod-emoji" style="display:none">🍲</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Hogareño</span>
+            <h3 class="prod-title">Platos de autor</h3>
+            <p class="prod-desc">Lasagnas, canelones, milanesas y más. Cocina casera de calidad lista para llevar a tu mesa.</p>
+          </div>
+        </div>
+
+        <div class="prod-card fade-up" style="transition-delay:.3s">
+          <div class="prod-img">
+            <div class="prod-emoji">🔮</div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-tag">Especial</span>
+            <h3 class="prod-title">¿Querés algo específico?</h3>
+            <p class="prod-desc">Consultanos. Tenemos variedad de opciones y podemos orientarte según lo que necesitás para vos o tu familia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── POR QUÉ ALDEITAS ── -->
+  <section id="por-que">
+    <div class="porq-grid">
+      <div class="porq-img-col fade-up">
+        <img src="/Assets/La%20Aldea%20-%20Alta%20(32).jpg" alt="Elaboración artesanal Aldeitas" loading="lazy" />
+        <div class="porq-img-overlay"></div>
+      </div>
+      <div class="porq-content fade-up" style="transition-delay:.15s">
+        <span class="section-label">Por qué elegirnos</span>
+        <h2 class="section-title">Calidad casera, <span>comodidad moderna</span></h2>
+        <p class="section-sub">Elaboramos nuestros productos con la misma dedicación de siempre, para que vos lo disfrutes sin esfuerzo.</p>
+        <ul class="features-list">
+          <li class="feat-item">
+            <span class="feat-icon">🥦</span>
+            <div class="feat-content">
+              <strong>Ingredientes frescos y seleccionados</strong>
+              <span>Trabajamos con proveedores locales de confianza para garantizar la mejor calidad en cada producto.</span>
+            </div>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">👨‍🍳</span>
+            <div class="feat-content">
+              <strong>Recetas caseras de verdad</strong>
+              <span>Sin conservantes artificiales. Cocina hogareña con el sabor de siempre.</span>
+            </div>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">⏱️</span>
+            <div class="feat-content">
+              <strong>Listo en minutos</strong>
+              <span>De tu freezer al plato en pocos minutos. Sin complicaciones, sin ensuciar.</span>
+            </div>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">📦</span>
+            <div class="feat-content">
+              <strong>Packaging seguro y práctico</strong>
+              <span>Envases diseñados para conservar todo el sabor y facilitar la preparación.</span>
+            </div>
+          </li>
+        </ul>
+        <a href="https://wa.me/5493413190087?text=Hola%20Aldeitas%2C%20quiero%20ver%20los%20congelados%20disponibles" class="btn-wa" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" fill="white" width="22" height="22"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+          Ver catálogo por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ── -->
+  <section id="como-llega">
+    <div class="container">
+      <div class="steps-header fade-up">
+        <span class="section-label">Cómo funciona</span>
+        <h2 class="section-title">Pedí y <span>recibí</span> en tu casa</h2>
+        <p class="section-sub">Simple, rápido y sin complicaciones. Tu comida favorita al alcance de un mensaje.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card fade-up">
+          <div class="step-num">💬</div>
+          <h3 class="step-title">1. Escribinos</h3>
+          <p class="step-desc">Contactanos por WhatsApp y decinos qué productos te interesan. Te asesoramos sin compromiso.</p>
+        </div>
+        <div class="step-card fade-up" style="transition-delay:.15s">
+          <div class="step-num">📋</div>
+          <h3 class="step-title">2. Armamos tu pedido</h3>
+          <p class="step-desc">Seleccionamos los productos frescos y los preparamos especialmente para vos con el mejor cuidado.</p>
+        </div>
+        <div class="step-card fade-up" style="transition-delay:.3s">
+          <div class="step-num">🏠</div>
+          <h3 class="step-title">3. Lo recibís</h3>
+          <p class="step-desc">Te lo entregamos directamente. Guardalo en el freezer y tenés comida rica lista cuando la necesitás.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUIÉNES SOMOS ── -->
+  <section id="quienes">
+    <div class="quienes-grid">
+      <div class="quienes-img fade-up">
+        <img src="/Assets/Equipo%20de%20trabajo.jpeg" alt="Equipo de Aldeitas" loading="lazy" />
+      </div>
+      <div class="quienes-content fade-up" style="transition-delay:.15s">
+        <span class="section-label">Nuestra historia</span>
+        <p class="quote-block">Cada producto sale de nuestra cocina con el mismo amor de siempre"</p>
+        <p class="autoridad-text">En Aldeitas creemos que comer bien no debería ser complicado. Por eso elaboramos nuestros congelados con los mismos estándares que usamos para las viandas corporativas: ingredientes frescos, recetas auténticas y un proceso que garantiza calidad en cada bocado.</p>
+        <p class="autoridad-text">Somos un equipo apasionado por la cocina y comprometido con hacer que tu día a día sea más fácil y delicioso.</p>
+        <div class="firma">
+          <div class="firma-ava">A</div>
+          <div class="firma-info">
+            <strong>Equipo Aldeitas</strong>
+            <span>Cocina artesanal · Rosario, Argentina</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ── -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="cta-inner fade-up">
+        <span class="section-label">¿Listo para probar?</span>
+        <h2 class="cta-headline">Comida casera y rica,<br><em>lista cuando vos querés.</em></h2>
+        <p class="cta-sub">Escribinos por WhatsApp, te contamos qué tenemos disponible y coordinamos la entrega. Simple y rápido.</p>
+        <a href="https://wa.me/5493413190087?text=Hola%20Aldeitas%2C%20quiero%20ver%20los%20congelados%20disponibles" class="btn-wa" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" fill="white" width="22" height="22"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+          Pedir por WhatsApp ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer id="footer" role="contentinfo">
+    <div style="width:100%;padding:0 5%">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/Assets/Logo_Final-removebg-preview.png" alt="Aldeitas Food" loading="lazy" style="filter:brightness(0) invert(1)" />
+          <p>Transformamos la comida de todos los días en soluciones reales para empresas y familias. Congelados artesanales y viandas corporativas desde Rosario.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/aldeitasfood.empresas" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <nav class="footer-nav">
+            <a href="https://aldeitas.com.ar">Inicio</a>
+            <a href="https://aldeitas.com.ar/viandas-corporativas">Viandas</a>
+            <a href="https://aldeitas.com.ar/congelados">Congelados</a>
+            <a href="https://aldeitas.com.ar/contacto">Contacto</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <nav class="footer-nav">
+            <a href="https://aldeitas.com.ar/viandas-corporativas">Viandas corporativas</a>
+            <a href="https://aldeitas.com.ar/congelados">Productos congelados</a>
+            <a href="https://aldeitas.com.ar/distribucion">Distribución</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+            <span>José M. Rosas 3115 bis, Rosario, Santa Fe</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+            <span>WhatsApp: +54 9 341 319-0087</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+            <span>Aldeitasfood6@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>ALDEITAS © 2025 — Todos los derechos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="https://aldeitas.com.ar/privacidad">Privacidad</a>
+          <a href="https://aldeitas.com.ar/legal">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── WA FLOAT ── -->
+  <a href="https://wa.me/5493413190087?text=Hola%20Aldeitas%2C%20quiero%20ver%20los%20congelados%20disponibles" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 16 16" fill="white"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+  </a>
+
+  <script>
+    // ── Announcement bar ──
+    const phrases = [
+      '❄️ Congelados artesanales — sin conservantes ni aditivos',
+      '✅ Ingredientes frescos seleccionados todos los días',
+      '📦 Entrega directa a tu casa — rápido y fácil',
+      '⭐ Más de 10 años de cocina casera de calidad',
+      '🥧 Tartas, pizzas, empanadas y mucho más',
+    ]
+    let current = 0, animating = false
+    const annText = document.getElementById('ann-text')
+    function showPhrase(i, dir = 'left') {
+      if (animating) return
+      animating = true
+      annText.classList.add(dir === 'left' ? 'ann-exit-left' : 'ann-exit-right')
+      setTimeout(() => {
+        current = (i + phrases.length) % phrases.length
+        annText.textContent = phrases[current]
+        annText.classList.remove('ann-exit-left', 'ann-exit-right')
+        annText.style.animation = 'none'
+        requestAnimationFrame(() => { annText.style.animation = ''; animating = false })
+      }, 320)
+    }
+    document.getElementById('ann-next').addEventListener('click', () => showPhrase(current + 1, 'left'))
+    document.getElementById('ann-prev').addEventListener('click', () => showPhrase(current - 1, 'right'))
+    setInterval(() => showPhrase(current + 1, 'left'), 4500)
+
+    // ── Navbar scroll ──
+    const navbar = document.getElementById('navbar')
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20)
+    }, { passive: true })
+
+    // ── Hamburger ──
+    const toggle = document.getElementById('nav-toggle')
+    const mobileMenu = document.getElementById('mobile-menu')
+    toggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open')
+      navbar.classList.toggle('menu-open', open)
+      toggle.setAttribute('aria-expanded', open)
+      toggle.querySelectorAll('span').forEach(s => s.classList.toggle('open', open))
+      document.body.style.overflow = open ? 'hidden' : ''
+    })
+
+    // ── Video pause ──
+    const video = document.querySelector('#hero video')
+    const pauseBtn = document.getElementById('pause-btn')
+    let paused = false
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused
+      paused ? video.pause() : video.play()
+      pauseBtn.innerHTML = paused
+        ? '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5,3 19,12 5,21"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>'
+    })
+
+    // ── Fade up ──
+    const fadeEls = document.querySelectorAll('.fade-up')
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } })
+    }, { threshold: 0.1 })
+    fadeEls.forEach(el => observer.observe(el))
+  </script>
+</body>
+</html>

@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultracongelados Aldeitas – Sumá un producto de alta rotación a tu negocio</title>
+    <meta name="description"
+        content="+400 comercios activos en Rosario. Ultracongelados de alta rotación para distribuidores, supermercados y almacenes. Sumate como punto de venta." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --blue: #185fa5;
+            --blue-mid: #1a6fc4;
+            --blue-dark: #0c3360;
+            --ice: #e8f4fd;
+            --ice-pale: #f4f9fe;
+            --gold: #c9a227;
+            --orange: #e8690a;
+            --dark: #0d1b2a;
+            --text: #2d3748;
+            --text-light: #64748b;
+            --white: #fff;
+            --off: #f8fafd;
+            --r: 12px;
+            --sh: 0 4px 32px rgba(0, 0, 0, .08);
+            --sh-lg: 0 16px 56px rgba(0, 0, 0, .14);
+            --t: .35s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        /* TOPBAR */
+        #topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, .97);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+            height: 68px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            transition: box-shadow .3s
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity .25s
+        }
+
+        .logo-link:hover {
+            opacity: .78
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -.02em
+        }
+
+        .logo-text span {
+            color: var(--gold)
+        }
+
+        .logo-sub {
+            font-size: .58rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            opacity: .55;
+            margin-top: -2px
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            padding-top: 68px;
+            background: linear-gradient(145deg, #061525 0%, #0c3360 45%, #185fa5 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 75% 50%, rgba(201, 162, 39, .07) 0%, transparent 55%), radial-gradient(circle at 15% 20%, rgba(255, 255, 255, .04) 0%, transparent 45%);
+            pointer-events: none
+        }
+
+        .hero-glow {
+            position: absolute;
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(24, 95, 165, .2) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 80px 56px 80px 60px
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .9);
+            margin-bottom: 28px
+        }
+
+        .hero-tag .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #25D366;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .6;
+                transform: scale(1.3)
+            }
+        }
+
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.08;
+            letter-spacing: -.03em;
+            margin-bottom: 20px
+        }
+
+        .hero-headline em {
+            color: var(--gold);
+            font-style: italic
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .78);
+            line-height: 1.68;
+            margin-bottom: 36px
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap
+        }
+
+        .h-stat {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: var(--r);
+            padding: 14px 20px;
+            text-align: center
+        }
+
+        .h-stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            line-height: 1
+        }
+
+        .h-stat-lbl {
+            font-size: .68rem;
+            color: rgba(255, 255, 255, .65);
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-top: 4px
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            padding: 17px 34px;
+            border-radius: 50px;
+            transition: var(--t);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, .35);
+            width: fit-content
+        }
+
+        .btn-wa:hover {
+            background: #1fba59;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 40px rgba(37, 211, 102, .45)
+        }
+
+        .btn-wa svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0
+        }
+
+        .btn-blue {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 700;
+            padding: 17px 32px;
+            border-radius: 50px;
+            transition: var(--t);
+            box-shadow: 0 8px 24px rgba(24, 95, 165, .35);
+            width: fit-content
+        }
+
+        .btn-blue:hover {
+            background: var(--blue-mid);
+            transform: translateY(-3px) scale(1.03)
+        }
+
+        /* hero visual */
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            padding: 80px 60px 80px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px
+        }
+
+        .hero-img-main {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .4);
+            aspect-ratio: 16/10
+        }
+
+        .hero-img-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .hero-img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .hero-img-sm {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .25)
+        }
+
+        .hero-img-sm img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 96px 0
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 32px
+        }
+
+        .sec-label {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px
+        }
+
+        .sec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.1;
+            letter-spacing: -.03em;
+            margin-bottom: 20px
+        }
+
+        .sec-title span {
+            color: var(--blue)
+        }
+
+        .sec-sub {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.65
+        }
+
+        /* OPORTUNIDAD */
+        #oportunidad {
+            background: var(--off)
+        }
+
+        .opor-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center
+        }
+
+        .opor-visual {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sh-lg);
+            aspect-ratio: 4/5;
+            position: relative
+        }
+
+        .opor-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .opor-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(8px);
+            border-radius: var(--r);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .12)
+        }
+
+        .opor-badge-icon {
+            font-size: 2rem
+        }
+
+        .opor-badge-text strong {
+            display: block;
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--dark)
+        }
+
+        .opor-badge-text span {
+            font-size: .8rem;
+            color: var(--text-light)
+        }
+
+        .pain-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 28px 0 32px
+        }
+
+        .pain-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            background: #fff;
+            border-radius: var(--r);
+            border-left: 4px solid var(--orange);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+            transition: transform .25s
+        }
+
+        .pain-item:hover {
+            transform: translateX(4px)
+        }
+
+        .pain-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            line-height: 1
+        }
+
+        .pain-text {
+            font-size: .96rem;
+            font-weight: 500;
+            color: var(--dark);
+            line-height: 1.5
+        }
+
+        .pain-callout {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--blue);
+            border-left: 3px solid var(--blue);
+            padding-left: 16px;
+            font-style: italic;
+            margin-bottom: 30px
+        }
+
+        /* PRODUCTO */
+        #producto {
+            background: #fff
+        }
+
+        .prod-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center
+        }
+
+        .prod-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sh-lg);
+            aspect-ratio: 4/5
+        }
+
+        .prod-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .prod-cats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 28px 0 36px
+        }
+
+        .prod-cat {
+            background: var(--ice);
+            border: 1px solid rgba(24, 95, 165, .1);
+            border-radius: var(--r);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .prod-cat:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sh)
+        }
+
+        .prod-cat-icon {
+            font-size: 1.6rem
+        }
+
+        .prod-cat-name {
+            font-size: .92rem;
+            font-weight: 700;
+            color: var(--dark)
+        }
+
+        /* MÉTRICAS */
+        #metricas {
+            background: var(--blue-dark);
+            padding: 80px 0
+        }
+
+        #metricas .sec-label {
+            color: var(--gold);
+            opacity: .9
+        }
+
+        #metricas .sec-title {
+            color: #fff
+        }
+
+        #metricas .sec-title span {
+            color: var(--gold)
+        }
+
+        #metricas .sec-sub {
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .met-header {
+            text-align: center;
+            margin-bottom: 60px
+        }
+
+        .met-header .sec-sub {
+            max-width: 540px;
+            margin: 0 auto
+        }
+
+        .met-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px
+        }
+
+        .met-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 18px;
+            padding: 40px 28px;
+            text-align: center;
+            transition: transform .3s, background .3s
+        }
+
+        .met-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .met-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .met-lbl {
+            font-size: .95rem;
+            font-weight: 600;
+            color: #fff;
+            display: block;
+            margin-bottom: 6px
+        }
+
+        .met-sub {
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .55);
+            line-height: 1.5
+        }
+
+        .met-tagline {
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .8);
+            font-style: italic
+        }
+
+        /* CÓMO FUNCIONA */
+        #como {
+            background: var(--off)
+        }
+
+        .como-header {
+            text-align: center;
+            margin-bottom: 56px
+        }
+
+        .como-header .sec-sub {
+            max-width: 520px;
+            margin: 0 auto
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            position: relative
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--blue-mid));
+            opacity: .2;
+            z-index: 0
+        }
+
+        .step {
+            text-align: center;
+            padding: 24px 12px;
+            position: relative;
+            z-index: 1
+        }
+
+        .step-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            font-weight: 800;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 20px rgba(24, 95, 165, .3)
+        }
+
+        .step-title {
+            font-size: .88rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.4
+        }
+
+        /* DIFERENCIALES */
+        #diferenciales {
+            background: #fff
+        }
+
+        .dif-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center
+        }
+
+        .dif-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sh-lg);
+            aspect-ratio: 4/3;
+            order: 1
+        }
+
+        .dif-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .dif-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 28px 0 36px
+        }
+
+        .dif-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: var(--ice);
+            border-radius: var(--r);
+            transition: transform .25s
+        }
+
+        .dif-item:hover {
+            transform: translateX(4px)
+        }
+
+        .dif-check {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: .85rem
+        }
+
+        .dif-text {
+            font-size: .96rem;
+            font-weight: 600;
+            color: var(--dark)
+        }
+
+        /* PARA QUIÉN */
+        #para-quien {
+            background: var(--ice-pale)
+        }
+
+        .pq-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center
+        }
+
+        .pq-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sh-lg);
+            aspect-ratio: 4/5
+        }
+
+        .pq-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 28px 0 36px
+        }
+
+        .aud-card {
+            background: #fff;
+            border: 1px solid rgba(24, 95, 165, .1);
+            border-radius: var(--r);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .aud-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sh)
+        }
+
+        .aud-icon {
+            font-size: 1.6rem
+        }
+
+        .aud-name {
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--dark)
+        }
+
+        .aud-sub {
+            font-size: .75rem;
+            color: var(--text-light)
+        }
+
+        .pq-callout {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--blue);
+            font-style: italic;
+            margin-bottom: 28px
+        }
+
+        /* CTA FINAL */
+        #cta-final {
+            background: linear-gradient(135deg, #061525 0%, #0c3360 50%, #185fa5 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        #cta-final::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(201, 162, 39, .06);
+            pointer-events: none
+        }
+
+        #cta-final::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .03);
+            pointer-events: none
+        }
+
+        .cta-inner {
+            text-align: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .cta-label {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px
+        }
+
+        .cta-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            letter-spacing: -.03em;
+            margin-bottom: 20px
+        }
+
+        .cta-headline em {
+            color: var(--gold);
+            font-style: italic
+        }
+
+        .cta-sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, .75);
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.65
+        }
+
+        /* FOOTER */
+        #footer-mini {
+            background: #040d1a;
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .85)
+        }
+
+        .footer-logo span {
+            color: var(--gold)
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, .45);
+            font-size: .82rem;
+            transition: color .25s
+        }
+
+        .footer-link:hover {
+            color: var(--gold)
+        }
+
+        .footer-copy {
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .28)
+        }
+
+        /* WA FLOAT */
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 200;
+            background: #25D366;
+            color: #fff;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, .45);
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 36px rgba(37, 211, 102, .55)
+        }
+
+        .wa-float svg {
+            width: 28px;
+            height: 28px
+        }
+
+        /* ANIM */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:960px) {
+            #hero {
+                grid-template-columns: 1fr
+            }
+
+            .hero-content {
+                padding: 56px 32px 32px
+            }
+
+            .hero-visual {
+                padding: 0 32px 56px
+            }
+
+            .opor-inner,
+            .prod-inner,
+            .dif-inner,
+            .pq-inner {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .dif-img {
+                order: 0
+            }
+
+            .opor-visual,
+            .prod-img,
+            .dif-img,
+            .pq-img {
+                aspect-ratio: 16/9
+            }
+
+            .met-grid {
+                grid-template-columns: 1fr
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px
+            }
+
+            .steps::before {
+                display: none
+            }
+        }
+
+        @media(max-width:600px) {
+            section {
+                padding: 64px 0
+            }
+
+            .container {
+                padding: 0 20px
+            }
+
+            .hero-stats {
+                flex-direction: column
+            }
+
+            .prod-cats {
+                grid-template-columns: 1fr
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr
+            }
+
+            .cta-headline {
+                font-size: 1.9rem
+            }
+
+            #footer-mini {
+                flex-direction: column;
+                text-align: center
+            }
+
+            #topbar {
+                padding: 0 20px
+            }
+
+            .steps {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1507580230885303');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1507580230885303&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+    <!-- TOPBAR -->
+    <header id="topbar">
+        <a href="https://aldeitas.com.ar" class="logo-link" aria-label="Ir al sitio oficial de Aldeitas">
+            <div>
+                <div class="logo-text">Alde<span>itas</span></div>
+                <div class="logo-sub">Ultracongelados</div>
+            </div>
+        </a>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span class="dot"></span>
+                Oportunidad de negocio real
+            </div>
+            <h1 class="hero-headline">Sumá un producto de <em>alta rotación</em> a tu negocio</h1>
+            <p class="hero-sub">Ultracongelados listos para vender, con demanda real y reposición constante. Una línea
+                validada en el mercado.</p>
+
+            <div class="hero-stats">
+                <div class="h-stat">
+                    <span class="h-stat-num">+30K</span>
+                    <span class="h-stat-lbl">Unidades / mes</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-num">+400</span>
+                    <span class="h-stat-lbl">Clientes activos</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-num">50+</span>
+                    <span class="h-stat-lbl">Opciones de platos</span>
+                </div>
+            </div>
+
+            <a id="hero-wa-btn"
+                href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20vender%20sus%20ultracongelados"
+                class="btn-wa" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                </svg>
+                Quiero vender Aldeitas
+            </a>
+        </div>
+
+        <div class="hero-visual fade-up" style="transition-delay:.2s">
+            <div class="hero-img-main">
+                <img src="../../Assets/Landings Congelados/Diseño sin título - 2026-04-16T224615.905.png"
+                    alt="Ultracongelados Aldeitas" loading="eager"
+                    onerror="this.parentElement.style.background='linear-gradient(135deg,#0c3360,#185fa5)';this.style.display='none'" />
+            </div>
+            <div class="hero-img-grid">
+                <div class="hero-img-sm">
+                    <img src="../../Assets/Landings Congelados/Diseño sin título - 2026-04-16T225222.295.png"
+                        alt="Producto Aldeitas" loading="lazy"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#185fa5,#1a6fc4)';this.style.display='none'" />
+                </div>
+                <div class="hero-img-sm">
+                    <img src="../../Assets/Landings Congelados/Diseño sin título - 2026-04-16T225949.451.png"
+                        alt="Producto Aldeitas" loading="lazy"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#0c3360,#185fa5)';this.style.display='none'" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPORTUNIDAD -->
+    <section id="oportunidad">
+        <div class="container">
+            <div class="opor-inner">
+                <div class="fade-up">
+                    <span class="sec-label">El mercado te lo pide</span>
+                    <h2 class="sec-title">Si tenés un comercio o distribuís productos…</h2>
+
+                    <ul class="pain-list">
+                        <li class="pain-item"><span class="pain-icon">🔄</span><span class="pain-text">Necesitás
+                                productos que roten constantemente</span></li>
+                        <li class="pain-item"><span class="pain-icon">😌</span><span class="pain-text">Que no te generen
+                                complicaciones operativas</span></li>
+                        <li class="pain-item"><span class="pain-icon">💰</span><span class="pain-text">Que se vendan
+                                solos y te dejen margen</span></li>
+                        <li class="pain-item"><span class="pain-icon">📦</span><span class="pain-text">Con entrega
+                                organizada y stock confiable</span></li>
+                    </ul>
+
+                    <p class="pain-callout">Acá tenés una línea lista para eso.</p>
+
+                    <a id="opor-wa-btn"
+                        href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20m%C3%A1s%20info%20sobre%20los%20ultracongelados"
+                        class="btn-wa" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                        </svg>
+                        Quiero más info por WhatsApp
+                    </a>
+                </div>
+
+                <div class="opor-visual fade-up" style="transition-delay:.15s">
+                    <img src="../../Assets/Landings Congelados/Diseño sin título - 2026-04-16T230456.694.png"
+                        alt="Línea de ultracongelados Aldeitas" loading="lazy"
+                        onerror="this.closest('.opor-visual').style.background='linear-gradient(135deg,var(--ice),#c8dff7)';this.remove()" />
+                    <div class="opor-badge">
+                        <span class="opor-badge-icon">📈</span>
+                        <div class="opor-badge-text">
+                            <strong>Alta rotación garantizada</strong>
+                            <span>Productos de consumo diario</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTO -->
+    <section id="producto">
+        <div class="container">
+            <div class="prod-inner">
+                <div class="prod-img fade-up" style="order:-1">
+                    <img src="../../Assets/Landings Congelados/Copia de Filet de merluza.png"
+                        alt="Productos ultracongelados Aldeitas" loading="lazy"
+                        onerror="this.closest('.prod-img').style.background='linear-gradient(135deg,var(--ice),var(--ice-pale))';this.style.display='none'" />
+                </div>
+
+                <div class="fade-up" style="transition-delay:.15s">
+                    <span class="sec-label">Nuestra línea</span>
+                    <h2 class="sec-title">Una línea pensada para <span>vender fácil</span></h2>
+                    <p class="sec-sub">Productos prácticos, conocidos y de consumo diario. Fáciles de almacenar, fáciles
+                        de vender.</p>
+
+                    <div class="prod-cats">
+                        <div class="prod-cat"><span class="prod-cat-icon">🍽️</span><span
+                                class="prod-cat-name">Viandas</span></div>
+                        <div class="prod-cat"><span class="prod-cat-icon">🥘</span><span class="prod-cat-name">Platos
+                                principales</span></div>
+                        <div class="prod-cat"><span class="prod-cat-icon">🥟</span><span class="prod-cat-name">Empanadas
+                                y pizzas</span></div>
+                        <div class="prod-cat"><span class="prod-cat-icon">🥧</span><span class="prod-cat-name">Tartas y
+                                salados</span></div>
+                    </div>
+
+                    <a id="prod-wa-btn"
+                        href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20ver%20el%20cat%C3%A1logo%20de%20ultracongelados"
+                        class="btn-blue" target="_blank" rel="noopener">
+                        Ver catálogo completo →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTRICAS -->
+    <section id="metricas">
+        <div class="container">
+            <div class="met-header fade-up">
+                <span class="sec-label">Validado en el mercado</span>
+                <h2 class="sec-title">Una línea <span style="color:var(--gold)">probada y en crecimiento</span></h2>
+                <p class="sec-sub">Números reales de una marca que ya opera y crece en Rosario y alrededores.</p>
+            </div>
+            <div class="met-grid">
+                <div class="met-card fade-up">
+                    <span class="met-num">400+</span>
+                    <span class="met-lbl">Comercios activos</span>
+                    <span class="met-sub">en Rosario y alrededores</span>
+                </div>
+                <div class="met-card fade-up" style="transition-delay:.12s">
+                    <span class="met-num">50+</span>
+                    <span class="met-lbl">Opciones de platos</span>
+                    <span class="met-sub">listos para vender</span>
+                </div>
+                <div class="met-card fade-up" style="transition-delay:.24s">
+                    <span class="met-num">30K+</span>
+                    <span class="met-lbl">Unidades mensuales</span>
+                    <span class="met-sub">en movimiento constante</span>
+                </div>
+            </div>
+            <p class="met-tagline fade-up">Productos con demanda real y rotación constante.</p>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como">
+        <div class="container">
+            <div class="como-header fade-up">
+                <span class="sec-label">El proceso</span>
+                <h2 class="sec-title">Empezar es <span>simple</span></h2>
+                <p class="sec-sub">Sin procesos complejos. En pocos pasos tenés una nueva línea de ingresos para tu
+                    negocio.</p>
+            </div>
+            <div class="steps">
+                <div class="step fade-up">
+                    <div class="step-circle">1</div>
+                    <p class="step-title">Nos escribís por WhatsApp</p>
+                </div>
+                <div class="step fade-up" style="transition-delay:.08s">
+                    <div class="step-circle">2</div>
+                    <p class="step-title">Te damos info y catálogo</p>
+                </div>
+                <div class="step fade-up" style="transition-delay:.16s">
+                    <div class="step-circle">3</div>
+                    <p class="step-title">Seleccionás tus productos</p>
+                </div>
+                <div class="step fade-up" style="transition-delay:.24s">
+                    <div class="step-circle">4</div>
+                    <p class="step-title">Coordinamos envío o retiro</p>
+                </div>
+                <div class="step fade-up" style="transition-delay:.32s">
+                    <div class="step-circle" style="background:var(--gold)">5</div>
+                    <p class="step-title">Empezás a <strong>vender</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIALES -->
+    <section id="diferenciales">
+        <div class="container">
+            <div class="dif-inner">
+                <div class="fade-up">
+                    <span class="sec-label">Por qué elegirnos</span>
+                    <h2 class="sec-title">Lo que nos hace <span>diferentes</span></h2>
+                    <p class="sec-sub">No es solo un producto. Es una línea completa con respaldo comercial.</p>
+
+                    <ul class="dif-list">
+                        <li class="dif-item">
+                            <div class="dif-check">✓</div><span class="dif-text">Producto de consumo masivo y alta
+                                demanda</span>
+                        </li>
+                        <li class="dif-item">
+                            <div class="dif-check">✓</div><span class="dif-text">Fácil almacenamiento en freezer
+                                estándar</span>
+                        </li>
+                        <li class="dif-item">
+                            <div class="dif-check">✓</div><span class="dif-text">Entregas organizadas y puntuales</span>
+                        </li>
+                        <li class="dif-item">
+                            <div class="dif-check">✓</div><span class="dif-text">Marca en crecimiento sostenido</span>
+                        </li>
+                        <li class="dif-item">
+                            <div class="dif-check">✓</div><span class="dif-text">Acompañamiento comercial desde el día
+                                uno</span>
+                        </li>
+                    </ul>
+
+                    <a id="dif-wa-btn"
+                        href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20ser%20punto%20de%20venta"
+                        class="btn-wa" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                        </svg>
+                        Quiero ser punto de venta
+                    </a>
+                </div>
+
+                <div class="dif-img fade-up" style="transition-delay:.15s">
+                    <img src="../../Assets/La Aldea - Redes (1).jpg" alt="Productos Aldeitas listos para distribución"
+                        loading="lazy"
+                        onerror="this.closest('.dif-img').style.background='linear-gradient(135deg,var(--ice),#c8dff7)';this.remove()" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section id="para-quien">
+        <div class="container">
+            <div class="pq-inner">
+                <div class="pq-img fade-up">
+                    <img src="../../Assets/La Aldea - Alta (36).jpg" alt="Comercios que venden Aldeitas" loading="lazy"
+                        onerror="this.closest('.pq-img').style.background='linear-gradient(135deg,var(--ice),#ddeef9)';this.remove()" />
+                </div>
+
+                <div class="fade-up" style="transition-delay:.15s">
+                    <span class="sec-label">¿Para quién es?</span>
+                    <h2 class="sec-title">Si vendés alimentos, <span>podés sumarte</span></h2>
+
+                    <div class="audience-grid">
+                        <div class="aud-card">
+                            <span class="aud-icon">🚚</span>
+                            <div>
+                                <div class="aud-name">Distribuidores</div>
+                                <div class="aud-sub">Amplía tu catálogo</div>
+                            </div>
+                        </div>
+                        <div class="aud-card">
+                            <span class="aud-icon">🏪</span>
+                            <div>
+                                <div class="aud-name">Supermercados</div>
+                                <div class="aud-sub">Alta rotación garantizada</div>
+                            </div>
+                        </div>
+                        <div class="aud-card">
+                            <span class="aud-icon">🛒</span>
+                            <div>
+                                <div class="aud-name">Almacenes</div>
+                                <div class="aud-sub">Productos que se venden solos</div>
+                            </div>
+                        </div>
+                        <div class="aud-card">
+                            <span class="aud-icon">🏘️</span>
+                            <div>
+                                <div class="aud-name">Comercios de cercanía</div>
+                                <div class="aud-sub">Fidelizá a tus clientes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="pq-callout">Si vendés alimentos, podés sumar esta línea hoy mismo.</p>
+
+                    <a id="pq-wa-btn"
+                        href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20me%20interesa%20vender%20sus%20ultracongelados"
+                        class="btn-blue" target="_blank" rel="noopener">
+                        Empezar ahora →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final">
+        <div class="container">
+            <div class="cta-inner fade-up">
+                <span class="cta-label">¿Listo para sumar ingresos?</span>
+                <h2 class="cta-headline">Sumá un producto que rota y<br><em>simplifica tu negocio.</em></h2>
+                <p class="cta-sub">Escribinos por WhatsApp y te contamos cómo empezar. Sin procesos complejos, sin
+                    compromisos.</p>
+                <a id="cta-wa-btn"
+                    href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20sumar%20los%20ultracongelados%20a%20mi%20negocio"
+                    class="btn-wa" target="_blank" rel="noopener" style="margin:0 auto">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                    </svg>
+                    Hablar por WhatsApp ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer-mini">
+        <span class="footer-logo">Alde<span>itas</span> · Ultracongelados</span>
+        <a href="https://aldeitas.com.ar" class="footer-link" target="_blank" rel="noopener">→ Ir al sitio web
+            oficial</a>
+        <span class="footer-copy">© 2025 Aldeitas · Todos los derechos reservados</span>
+    </footer>
+
+    <!-- WA Flotante -->
+    <a id="wa-float"
+        href="https://wa.me/5491100000000?text=Hola%20Aldeitas%2C%20quiero%20vender%20sus%20ultracongelados"
+        class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+        </svg>
+    </a>
+
+    <script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+        const tb = document.getElementById('topbar');
+        window.addEventListener('scroll', () => {
+            tb.style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,.09)' : '';
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
