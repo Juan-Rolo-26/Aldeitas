@@ -13,18 +13,18 @@ const plates = [
     },
     {
         src: `${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`,
-        alt: 'Wraps de vegetales',
-        label: 'Wraps Veggies',
+        alt: 'Wraps',
+        label: 'Wraps',
     },
     {
-        src: `${import.meta.env.BASE_URL}assets/La Aldea - Alta (32).jpg`,
-        alt: 'Ensalada fresca con queso',
-        label: 'Opciones Frescas',
+        src: `${import.meta.env.BASE_URL}assets/salmon.png`,
+        alt: 'Plato Gourmet Salmón',
+        label: 'Platos Gourmet',
     },
     {
-        src: `${import.meta.env.BASE_URL}assets/La Aldea - Alta (11).jpg`,
-        alt: 'Menú casero tradicional',
-        label: 'Menú Casero',
+        src: `${import.meta.env.BASE_URL}assets/chocotorta.png`,
+        alt: 'Postre Chocotorta',
+        label: 'Dulces',
     },
 ]
 

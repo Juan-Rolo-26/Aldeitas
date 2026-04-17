@@ -43,7 +43,7 @@ export function Unidades() {
           <AnimateOnScroll as="article" className="unidad-card congelados" delay={2} aria-label="Productos congelados Aldeitas">
             <img
               className="unidad-img"
-              src={`${import.meta.env.BASE_URL}assets/Congelados1.png`}
+              src={`${import.meta.env.BASE_URL}assets/ultracongelados.png`}
               alt="Línea de productos congelados Aldeitas para hogares"
               width={560}
               height={520}

@@ -112,8 +112,8 @@ export default function Congelados() {
             {/* PLATOS PRINCIPALES */}
             <AnimateOnScroll>
               <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '32px', height: '100%', border: '1px solid rgba(24, 95, 165, 0.08)', transition: 'var(--transition)' }} className="hover-lift">
-                <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--blue-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--blue)' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
+                <div style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img src={`${import.meta.env.BASE_URL}assets/plato2.png`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Viandas" />
                 </div>
                 <h3 style={{ color: 'var(--blue)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>VIANDAS / PLATOS</h3>
                 <p style={{ color: 'var(--text-light)', marginBottom: '24px', fontSize: '1rem' }}>Platos completos, abundantes y equilibrados.</p>
@@ -129,8 +129,8 @@ export default function Congelados() {
             {/* EMPANADAS Y PIZZAS */}
             <AnimateOnScroll delay={0.1}>
               <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '32px', height: '100%', border: '1px solid rgba(24, 95, 165, 0.08)', transition: 'var(--transition)' }} className="hover-lift">
-                <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--blue-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--blue)' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18" /><path d="M12 21V7" /><path d="M12 7H4a2 2 0 0 0-2 2v10" /><path d="M12 7h8a2 2 0 0 1 2 2v10" /><path d="M20 21V7" /></svg>
+                <div style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img src={`${import.meta.env.BASE_URL}assets/plato3.png`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Empanadas y Pizzas" />
                 </div>
                 <h3 style={{ color: 'var(--blue)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>EMPANADAS Y PIZZAS</h3>
                 <p style={{ color: 'var(--text-light)', marginBottom: '24px', fontSize: '1rem' }}>Clásicos que siempre funcionan.</p>
@@ -144,8 +144,8 @@ export default function Congelados() {
             {/* TARTAS Y SALADOS */}
             <AnimateOnScroll delay={0.2}>
               <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '32px', height: '100%', border: '1px solid rgba(24, 95, 165, 0.08)', transition: 'var(--transition)' }} className="hover-lift">
-                <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--gold)' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" /><path d="M12 3v18" /><path d="M3 12h18" /><path d="m18.36 5.64-12.72 12.72" /><path d="m18.36 18.36-12.72-12.72" /></svg>
+                <div style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img src={`${import.meta.env.BASE_URL}assets/plato4.png`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Tartas" />
                 </div>
                 <h3 style={{ color: 'var(--gold)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>TARTAS Y SALADOS</h3>
                 <p style={{ color: 'var(--text-light)', marginBottom: '24px', fontSize: '1rem' }}>Opciones prácticas para el día a día.</p>
@@ -159,8 +159,8 @@ export default function Congelados() {
             {/* DULCES */}
             <AnimateOnScroll delay={0.3}>
               <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '32px', height: '100%', border: '1px solid rgba(24, 95, 165, 0.08)', transition: 'var(--transition)' }} className="hover-lift">
-                <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--gold)' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10" /><path d="m16 2 1 6" /><path d="m7 21 5-4 5 4" /></svg>
+                <div style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img src={`${import.meta.env.BASE_URL}assets/chocotorta.png`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Dulces" />
                 </div>
                 <h3 style={{ color: 'var(--gold)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>DULCES</h3>
                 <p style={{ color: 'var(--text-light)', marginBottom: '24px', fontSize: '1rem' }}>Para acompañar o sumar algo más.</p>
@@ -174,8 +174,8 @@ export default function Congelados() {
             {/* GUARNICIONES */}
             <AnimateOnScroll delay={0.4}>
               <div style={{ background: 'var(--white)', padding: '48px', borderRadius: '32px', height: '100%', border: '1px solid rgba(24, 95, 165, 0.08)', transition: 'var(--transition)' }} className="hover-lift">
-                <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--blue-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', color: 'var(--blue)' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 10h8" /><path d="M10 14h4" /><path d="M12 18V6" /><path d="M3 10a9 9 0 0 1 18 0" /><path d="M3 10V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4" /></svg>
+                <div style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img src={`${import.meta.env.BASE_URL}assets/plato1.png`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Guarniciones" />
                 </div>
                 <h3 style={{ color: 'var(--blue)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '16px' }}>GUARNICIONES</h3>
                 <p style={{ color: 'var(--text-light)', marginBottom: '24px', fontSize: '1rem' }}>Para completar la experiencia.</p>
@@ -217,11 +217,11 @@ export default function Congelados() {
                   }}>
                     <div style={{ color: 'var(--white)' }}>
                       {idx === 0 ? (
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6l.32-.23a1.5 1.5 0 0 0 .5-1.54l-.44-1.1s.14-.13.34-.13a1.5 1.5 0 0 1 1 .43l2 2a1.5 1.5 0 0 1 0 2.12" /><path d="m15.5 10.5 4.5 4.5a2 2 0 0 1 0 2.83l-1.67 1.67a2 2 0 0 1-2.83 0l-4.5-4.5" /><path d="m14 7.5 2.29 2.29" /><path d="M3.8 19.33a.5.5 0 0 0 .1.11.5.5 0 0 0 .7-.08l2.21-2.48a1 1 0 0 1 1.4-.04c.12.1.25.21.37.33l1.1 1.1a1 1 0 0 1 .1 1.48L7.6 22.3a.5.5 0 0 1-.7.1.5.5 0 0 1-.1-.13l-3.3-3.3a.5.5 0 0 1 .3-.64Z" /></svg>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18h12a2 2 0 0 1 2 2v1H4v-1a2 2 0 0 1 2-2Z" /><path d="M4 18l1.3-3.6a1 1 0 0 1 1-.7h11.4a1 1 0 0 1 1 .7L20 18" /><path d="M12 14v-4" /><path d="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /></svg>
                       ) : idx === 1 ? (
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="15" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="M7 7h.01" /><path d="M11 7h.01" /><path d="M15 7h.01" /><circle cx="12" cy="14" r="2" /></svg>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="15" x="2" y="4" rx="2" /><path d="M2 10h20" /><path d="M6 7h.01" /><path d="M10 7h.01" /><path d="M14 7h.01" /><circle cx="12" cy="14" r="3" /></svg>
                       ) : (
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21a9 9 0 0 1-9-9c0-5 3-9 9-9 4 0 7 2 8.4 5" /><path d="M16 3l1 1-1 1" /><path d="M22 12a10 10 0 0 1-10 10" /><path d="M7 12a5 5 0 0 1 5-5" /></svg>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4" /><path d="M12 18v4" /><path d="M4.93 4.93l2.83 2.83" /><path d="M16.24 16.24l2.83 2.83" /><path d="M2 12h4" /><path d="M18 12h4" /><path d="M4.93 19.07l2.83-2.83" /><path d="M16.24 7.76l2.83-2.83" /></svg>
                       )}
                     </div>
                   </div>
@@ -294,7 +294,7 @@ export default function Congelados() {
             <AnimateOnScroll>
               <div style={{ borderRadius: '40px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
                 <img
-                  src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`}
+                  src={`${import.meta.env.BASE_URL}assets/ojo-de-bife.jpg`}
                   alt="Calidad Aldeitas"
                   style={{ width: '100%', height: '500px', objectFit: 'cover' }}
                 />

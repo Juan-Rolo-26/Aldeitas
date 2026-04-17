@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ModalTrigger } from '@/components/ModalTrigger'
 import { AnimateOnScroll } from '@/components/AnimateOnScroll'
-import { Link } from 'react-router-dom'
+
 
 const WA_NUMBER = import.meta.env.VITE_WA_NUMBER || '5493413190087'
 const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || '#'
@@ -47,7 +47,7 @@ export default function Distribucion() {
                             style={{ position: 'relative', height: '600px', borderRadius: '40px', overflow: 'hidden', boxShadow: 'var(--shadow-hover)' }}
                         >
                             <img
-                                src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`}
+                                src={`${import.meta.env.BASE_URL}assets/filet-merluza.png`}
                                 alt="Distribución Aldeitas"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
@@ -83,7 +83,7 @@ export default function Distribucion() {
                         <AnimateOnScroll direction="left">
                             <div style={{ borderRadius: '40px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
                                 <img
-                                    src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (53).jpg`}
+                                    src={`${import.meta.env.BASE_URL}assets/cocinero.jpg`}
                                     alt="Negocio Aldeitas"
                                     style={{ width: '100%', height: '600px', objectFit: 'cover' }}
                                 />
@@ -136,7 +136,7 @@ export default function Distribucion() {
                         </div>
                         <div style={{ borderRadius: '32px', overflow: 'hidden', height: '400px' }}>
                             <img
-                                src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (11).jpg`}
+                                src={`${import.meta.env.BASE_URL}assets/risotto.jpg`}
                                 alt="Comercios Aldeitas"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
@@ -275,15 +275,7 @@ export default function Distribucion() {
                 </div>
             </section>
 
-            {/* CRUCE INTELIGENTE */}
-            <section style={{ padding: '60px 0', borderTop: '1px solid #eee' }}>
-                <div className="container text-center">
-                    <Link to="/congelados" style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--blue)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '12px' }}>
-                        Conocé la línea completa de productos
-                        <span style={{ fontSize: '1.5rem' }}>→</span>
-                    </Link>
-                </div>
-            </section>
+
         </main>
     )
 }

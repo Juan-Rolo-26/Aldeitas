@@ -15,7 +15,7 @@ export default function Contacto() {
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5 }}
-            src={`${import.meta.env.BASE_URL}assets/La Aldea - Alta (20).jpg`}
+            src={`${import.meta.env.BASE_URL}assets/carne-encebollada.jpg`}
             alt="Nuestra Cocina"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
